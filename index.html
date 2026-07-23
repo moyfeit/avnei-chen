@@ -859,6 +859,52 @@
   </div>
 </section>
 
+
+
+<style>
+  /* ── רצועת קישור לדף הקהילה ── */
+  .peek { padding: 0 0 34px; }
+  .peek-strip {
+    max-width: 620px; margin: 0 auto; background: #FFF;
+    border: 1px solid var(--line); border-radius: 14px;
+    display: flex; align-items: center; gap: 16px;
+    padding: 12px 16px; text-decoration: none;
+    box-shadow: 0 6px 20px rgba(22,50,79,.07);
+    transition: transform .2s, box-shadow .2s;
+  }
+  .peek-strip:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(22,50,79,.12); }
+  .peek-strip img {
+    width: 62px; height: 62px; object-fit: cover;
+    border-radius: 10px; flex-shrink: 0; display: block;
+  }
+  .peek-text { flex: 1; text-align: right; }
+  .peek-text strong {
+    display: block; color: var(--sapphire); font-size: 16.5px; font-weight: 700; margin-bottom: 3px;
+  }
+  .peek-text span { color: #6B7681; font-size: 13.5px; line-height: 1.5; }
+  .peek-go { color: var(--gold); font-size: 22px; font-weight: 700; flex-shrink: 0; padding-inline-end: 4px; }
+  @media (max-width: 460px) {
+    .peek-strip { gap: 12px; padding: 10px 12px; }
+    .peek-strip img { width: 54px; height: 54px; }
+    .peek-text strong { font-size: 15.5px; }
+    .peek-text span { font-size: 12.5px; }
+  }
+</style>
+
+<!-- ═══════════ קישור לדף הקהילה ═══════════ -->
+<section class="section peek">
+  <div class="wrap">
+    <a class="peek-strip reveal" href="community.html">
+      <img loading="lazy" decoding="async" src="img-23.jpg" alt="בית הכנסת של הקהילה">
+      <span class="peek-text">
+        <strong>הקהילה שלנו</strong>
+        <span>בית הכנסת, השיעורים והפעילות למשפחות</span>
+      </span>
+      <span class="peek-go">←</span>
+    </a>
+  </div>
+</section>
+
 <!-- ═══════════ הדגשת מחיר ═══════════ -->
 <section class="section alt">
   <div class="wrap">
