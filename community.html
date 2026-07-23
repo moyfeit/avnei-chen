@@ -285,6 +285,19 @@
   </div>
 </section>
 
+
+<style>
+  /* ---------- אנימציות גלילה ---------- */
+  .reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition: opacity .7s ease, transform .7s ease;
+  }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) {
+    .reveal { opacity: 1; transform: none; }
+  }
+</style>
 <footer>
   <span class="gem">◆</span> קהילת בני הישיבות אבני חן — חריש <span class="gem">◆</span>
 </footer>
@@ -314,6 +327,30 @@
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+})();
+</script>
+
+<script>
+(function() {
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var targets = document.querySelectorAll('.ac-card, .c-block, .contact h2, .contact .lead, .contact-row, main h1, main .notice, .back');
+  targets.forEach(function(el) { el.classList.add('reveal'); });
+
+  var revealEls = document.querySelectorAll('.reveal');
+  if (reduced || !('IntersectionObserver' in window)) {
+    revealEls.forEach(function(el) { el.classList.add('visible'); });
+  } else {
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    revealEls.forEach(function(el) { io.observe(el); });
+  }
 })();
 </script>
 </body>
