@@ -100,16 +100,17 @@
   }
   .cat ul { list-style: none; }
   .cat li {
-    padding: 11px 0; border-bottom: 1px dashed #EAE2D0;
-    display: flex; justify-content: space-between; align-items: center; gap: 12px;
-    font-size: 15.5px;
+    padding: 10px 0; border-bottom: 1px dashed #EAE2D0;
+    font-size: 16px; color: #33404D; font-weight: 500;
+    display: flex; align-items: center; gap: 10px;
   }
   .cat li:last-child { border-bottom: none; }
-  .cat li .name { color: #33404D; font-weight: 500; }
-  .cat li .meta { color: #8A94A0; font-size: 13.5px; text-align: left; }
-  .cat li a { color: var(--gold); text-decoration: none; font-weight: 600; }
-  /* פריט ריק להשלמה — מסומן בקו זהב מקווקו */
+  .cat li::before {
+    content: ""; width: 6px; height: 6px; border-radius: 50%;
+    background: var(--gold); flex-shrink: 0;
+  }
   .todo { color: #B7BEC7; font-style: italic; }
+  .cat li.todo::before { background: #D8DCE2; }
 
   /* ── יצירת קשר ── */
   .contact {
@@ -134,6 +135,102 @@
   @media (max-width: 680px) {
     .cats { grid-template-columns: 1fr; gap: 14px; }
   }
+
+  /* ── סיפור העיר ── */
+  .story { max-width: 720px; margin: 28px auto 6px; padding: 0 22px; }
+  .sec-title { text-align: center; margin-bottom: 22px; }
+  .sec-title h2 {
+    font-family: 'Suez One', serif; font-weight: 400;
+    font-size: clamp(24px, 5.4vw, 32px); color: var(--sapphire);
+  }
+  .gem-divider {
+    display: block; width: 12px; height: 12px; margin: 12px auto 0;
+    background: var(--gold); transform: rotate(45deg);
+  }
+  .story p {
+    font-size: 17px; line-height: 1.95; color: #3A4653;
+    margin: 0 0 16px; text-align: justify;
+  }
+  .story p:last-of-type { margin-bottom: 0; }
+  .story strong { color: var(--sapphire); font-weight: 700; }
+  .sub-h {
+    font-family: 'Suez One', serif; font-weight: 400;
+    font-size: 21px; color: var(--sapphire);
+    margin: 30px 0 12px; padding-bottom: 8px;
+    border-bottom: 2px solid #EFE6D0;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .sub-h::before {
+    content: ""; width: 8px; height: 8px; border-radius: 50%;
+    background: var(--gold); flex-shrink: 0;
+  }
+  /* מבט קדימה — בתכנון */
+  .lookahead {
+    position: relative; margin-top: 22px;
+    background: var(--sapphire); color: #DCE6F0;
+    border-radius: 14px; padding: 22px 24px 22px; overflow: hidden;
+  }
+  .lookahead::after {
+    content: ""; position: absolute; bottom: -70px; left: -40px;
+    width: 170px; height: 170px; border: 1px solid rgba(217,185,106,.35);
+    transform: rotate(45deg); pointer-events: none;
+  }
+  .la-tag {
+    display: inline-block; background: var(--gold); color: #FFF;
+    font-size: 12.5px; font-weight: 700; letter-spacing: .04em;
+    padding: 5px 14px; border-radius: 999px; margin-bottom: 12px;
+  }
+  .lookahead p {
+    color: #D6E1EC; font-size: 15.5px; line-height: 1.85; margin: 0;
+    text-align: start; position: relative; z-index: 1;
+  }
+  .lookahead strong { color: var(--gold-soft); font-weight: 700; }
+
+  /* ── כותרת המדריך ── */
+  .dir-head { text-align: center; max-width: 640px; margin: 46px auto 0; padding: 0 22px; }
+  .dir-head h2 {
+    font-family: 'Suez One', serif; font-weight: 400;
+    font-size: clamp(23px, 5vw, 30px); color: var(--sapphire);
+  }
+  .dir-head p { font-size: 16px; line-height: 1.7; color: #4A5763; margin-top: 12px; }
+
+  /* ── בורר מהיר ── */
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  .story, .dir-head { scroll-margin-top: 82px; }
+
+  .chooser {
+    max-width: 620px; margin: 24px auto 4px; padding: 0 22px;
+    display: flex; flex-direction: column; gap: 12px;
+  }
+  .choose-card {
+    display: flex; align-items: center; gap: 14px;
+    background: #FFF; border: 1px solid var(--line); border-radius: 14px;
+    padding: 15px 18px; text-decoration: none;
+    box-shadow: 0 8px 24px rgba(22,50,79,.06);
+    transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  }
+  .choose-card:hover, .choose-card:focus-visible {
+    transform: translateY(-2px); box-shadow: 0 12px 30px rgba(22,50,79,.12);
+    border-color: var(--gold-soft);
+  }
+  .choose-card:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+  .cc-num {
+    flex-shrink: 0; width: 38px; height: 38px; border-radius: 10px;
+    background: #FBF4E4; color: var(--gold);
+    font-family: 'Suez One', serif; font-size: 20px;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .cc-body { flex: 1; text-align: right; }
+  .cc-body strong { display: block; color: var(--sapphire); font-size: 16.5px; font-weight: 700; line-height: 1.35; }
+  .cc-body .cc-sub { display: block; color: #6B7681; font-size: 13px; font-weight: 500; margin-top: 2px; }
+  .cc-go { flex-shrink: 0; color: var(--gold); font-size: 20px; font-weight: 700; }
+  .choose-card.tbd {
+    background: #FBFAF6; border-style: dashed; border-color: #D8CEB6;
+    box-shadow: none; cursor: default;
+  }
+  .choose-card.tbd .cc-num { background: #F0EBDD; color: #B9A97E; }
+  .choose-card.tbd .cc-body strong { color: #9AA0A8; }
 </style>
 </head>
 <body>
@@ -147,9 +244,58 @@
 <main>
   <div class="page-head">
     <div class="crest">◆</div>
-    <h1>חריש החרדית — כל מה שצריך</h1>
+    <h1>חריש החרדית</h1>
     <div class="gold-rule"></div>
-    <p>מדריך מקומי למשפחה חרדית בחריש: בתי כנסת, מוסדות חינוך, קניות, בריאות ותחבורה — הכול במקום אחד, במרחק הליכה משכונת אבני חן.</p>
+    <p>העיר, הצמיחה והמדריך המעשי — כל מה שכדאי למשפחה חרדית לדעת על חריש, במקום אחד.</p>
+  </div>
+
+  <!-- ═══ בורר מהיר ═══ -->
+  <nav class="chooser reveal" aria-label="ניווט מהיר בדף">
+    <a class="choose-card" href="#history">
+      <span class="cc-num">1</span>
+      <span class="cc-body"><strong>ההיסטוריה החרדית</strong><span class="cc-sub">איך חריש נהייתה בית לבני תורה</span></span>
+      <span class="cc-go" aria-hidden="true">←</span>
+    </a>
+    <a class="choose-card" href="#directory">
+      <span class="cc-num">2</span>
+      <span class="cc-body"><strong>חנויות, סופרים ומוסדות</strong><span class="cc-sub">כל מה שמשפחה חרדית צריכה בחריש</span></span>
+      <span class="cc-go" aria-hidden="true">←</span>
+    </a>
+    <div class="choose-card tbd">
+      <span class="cc-num">3</span>
+      <span class="cc-body"><strong>עוד בקרוב</strong><span class="cc-sub">בהמשך יתווסף כאן עוד תוכן</span></span>
+    </div>
+  </nav>
+
+  <!-- ═══ סיפור העיר ═══ -->
+  <section class="story reveal" id="history">
+    <div class="sec-title">
+      <h2>ההתיישבות החרדית בחריש</h2>
+      <span class="gem-divider"></span>
+    </div>
+
+    <p>חריש תוכננה במקור כעיר חרדית, אך התוכניות השתנו והציבור החרדי נדחק אל שולי התכנון. בזמן שרבים הרימו ידיים, נותרו כמה קהילות בודדות שלא אמרו נואש — כמה מאות משפחות בני תורה שנאחזו בקרקע והחליטו להקים כאן <strong>מקום תורה</strong>. הריכוז הגדול התגבש בלב העיר, בשכונת אבני חן.</p>
+
+    <p>ההתחלה לא היתה פשוטה: עיר חדשה, חוסרים בסיסיים, ולא תמיד קבלת פנים חמה. אבל המשפחות החלוצות דבקו במטרה — וכמו בכל מקום שבו מתחילה התיישבות חרדית, מה שהתחיל כגרעין קטן רק הלך והתרחב.</p>
+
+    <p>נקודת המפנה הגיעה לפני כחמש שנים: מאות זוגות צעירים רכשו דירות, חלקם במסגרת "מחיר למשתכן". בשנתיים האחרונות, עם ירידת מחירי הדיור, החלה נהירה של משפחות בני תורה מכל הארץ — שגילו עיר חדשה, נקייה ומטופחת, עם קהילות חמות ומחירים שווים לכל נפש.</p>
+
+    <p>גם הנהגת העיר השתנתה, ומאז הוקצו למעלה מ-15 הקצאות לבתי כנסת ולמוסדות חרדיים. חריש עדיין אינה עיר חרדית — אבל היא כבר בית למשפחות בני תורה. כיום פועלות בה קהילות ליטאיות מבוגרי הישיבות בכמה שכונות ברחבי העיר, ובהן <strong>החורש ואבני חן</strong> — המתנהלות באחדות, כמעט כמו קהילה אחת.</p>
+
+    <h3 class="sub-h">תחבורה ונגישות</h3>
+    <p>היתרון התחבורתי המרכזי של חריש הוא הצמידות לכביש 6, שמאפשרת יציאה מהירה לכל אזורי המרכז — כ-42 דקות לבני ברק. בתוך העיר פועלים קווי אוטובוס עירוניים לצד קווים בין-עירוניים, ומערך התחבורה הציבורית מתחזק בשנים האחרונות ב"פעימות תגבור": הוספת נסיעות, הארכת שעות הפעילות, ותכנון קווים ישירים נוספים למרכז ולנתניה.</p>
+
+    <div class="lookahead">
+      <span class="la-tag">מבט קדימה · בתכנון</span>
+      <p>כחלק מהפיכת חריש למרכז עירוני גדול, מקודמת הקמת <strong>תחנת רכבת</strong> לעיר במסגרת "מסילת מנשה" — קו רכבת חדש לאורך כביש 6. לפי החלופה המובילה, התחנה תוקם ממערב לכביש 6 ותחובר לעיר בגשר עילי, בצמוד למסוף תחבורה ציבורית. התוכנית נמצאת בשלבי אישור ותכנון — מועד ביצוע טרם נקבע.</p>
+    </div>
+  </section>
+
+  <!-- ═══ כותרת המדריך ═══ -->
+  <div class="dir-head reveal" id="directory">
+    <h2>המדריך המקומי</h2>
+    <span class="gem-divider"></span>
+    <p>בתי כנסת, חינוך, קניות, בריאות ותחבורה — כל מה שמשפחה חרדית צריכה, במרחק הליכה משכונת אבני חן.</p>
   </div>
 
   <div class="cats">
@@ -188,10 +334,11 @@
         <h2>קניות ומזון</h2>
       </div>
       <ul>
-        <li><span class="name">סופר / מכולת מהדרין</span><span class="meta">שם + כתובת</span></li>
-        <li><span class="name">מאפייה</span><span class="meta">שם</span></li>
-        <li><span class="name">חנות צעצועים / ספרים</span><span class="meta">שם</span></li>
-        <li><span class="todo">— הוסף כאן חנויות —</span></li>
+        <li>מעיין 2000 — אבני חן</li>
+        <li>מעיין 2000 — החורש</li>
+        <li>סופר סטור — החורש (2 סניפים)</li>
+        <li>מכולת מה שצריך — הפרחים</li>
+        <li>סופר KT — בצוותא</li>
       </ul>
     </section>
 
@@ -236,30 +383,7 @@
       </ul>
     </section>
 
-    <!-- ═══ שירותים נוספים ═══ -->
-    <section class="cat reveal" id="more">
-      <div class="cat-head">
-        <span class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="9"/><path d="M12 8 L12 12 L15 14" stroke-linecap="round"/></svg></span>
-        <h2>שירותים נוספים</h2>
-      </div>
-      <ul>
-        <li><span class="name">גמ״חים</span><span class="meta">שם + טלפון</span></li>
-        <li><span class="name">מכבסה / תפירה</span><span class="meta">שם</span></li>
-        <li><span class="name">פארקים וגינות</span><span class="meta">מיקום</span></li>
-        <li><span class="todo">— הוסף כאן שירותים —</span></li>
-      </ul>
-    </section>
 
-    <!-- ═══ קטגוריה ריקה להעתקה ═══ -->
-    <section class="cat reveal" id="custom">
-      <div class="cat-head">
-        <span class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 5 L12 19 M5 12 L19 12" stroke-linecap="round"/></svg></span>
-        <h2>קטגוריה חדשה</h2>
-      </div>
-      <ul>
-        <li><span class="todo">— שכפל את הבלוק הזה כדי להוסיף קטגוריה —</span></li>
-      </ul>
-    </section>
 
   </div>
 </main>
