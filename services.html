@@ -231,6 +231,43 @@
   }
   .choose-card.tbd .cc-num { background: #F0EBDD; color: #B9A97E; }
   .choose-card.tbd .cc-body strong { color: #9AA0A8; }
+
+  /* ── אקורדיון ── */
+  .accordion { max-width: 660px; margin: 24px auto 0; padding: 0 22px; display: flex; flex-direction: column; gap: 12px; }
+  .acc-item { background: #FFF; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 8px 24px rgba(22,50,79,.06); overflow: hidden; }
+  .acc-head { width: 100%; display: flex; align-items: center; gap: 14px; background: none; border: none; cursor: pointer; text-align: right; padding: 15px 18px; font-family: inherit; }
+  .acc-head:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; border-radius: 13px; }
+  .acc-chev { flex-shrink: 0; color: var(--gold); display: flex; transition: transform .3s ease; }
+  .acc-chev svg { width: 19px; height: 19px; }
+  .acc-item.open .acc-chev { transform: rotate(180deg); }
+  .acc-panel { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
+  .acc-item.open .acc-panel { max-height: none; }
+  .acc-inner { padding: 2px 20px 22px; }
+  .acc-inner .story { max-width: none; margin: 0; padding: 0; }
+  .acc-inner .story p:first-child { margin-top: 4px; }
+  .acc-inner .cats { margin-top: 4px; }
+  .acc-item.tbd { background: #FBFAF6; border-style: dashed; border-color: #D8CEB6; box-shadow: none; }
+  .acc-head.static { cursor: default; }
+  .acc-item.tbd .cc-num { background: #F0EBDD; color: #B9A97E; }
+  .acc-item.tbd .cc-body strong { color: #9AA0A8; }
+
+  /* ── רשימה נקייה ── */
+  .plain-list { padding: 4px 2px 0; }
+  .plain-list h3 {
+    font-family: 'Suez One', serif; font-weight: 400;
+    font-size: 19px; color: var(--sapphire);
+    margin: 0 0 12px; padding-bottom: 8px;
+    border-bottom: 2px solid #EFE6D0;
+  }
+  .plain-list ul { list-style: none; margin: 0; padding: 0; }
+  .plain-list li {
+    font-size: 16px; line-height: 1.7; color: #3A4653;
+    padding: 7px 0 7px 0; display: flex; align-items: baseline; gap: 10px;
+  }
+  .plain-list li::before {
+    content: ""; flex-shrink: 0; width: 6px; height: 6px;
+    background: var(--gold); transform: rotate(45deg);
+  }
 </style>
 </head>
 <body>
@@ -249,31 +286,19 @@
     <p>העיר, הצמיחה והמדריך המעשי — כל מה שכדאי למשפחה חרדית לדעת על חריש, במקום אחד.</p>
   </div>
 
-  <!-- ═══ בורר מהיר ═══ -->
-  <nav class="chooser reveal" aria-label="ניווט מהיר בדף">
-    <a class="choose-card" href="#history">
-      <span class="cc-num">1</span>
-      <span class="cc-body"><strong>ההיסטוריה החרדית</strong><span class="cc-sub">איך חריש נהייתה בית לבני תורה</span></span>
-      <span class="cc-go" aria-hidden="true">←</span>
-    </a>
-    <a class="choose-card" href="#directory">
-      <span class="cc-num">2</span>
-      <span class="cc-body"><strong>חנויות, סופרים ומוסדות</strong><span class="cc-sub">כל מה שמשפחה חרדית צריכה בחריש</span></span>
-      <span class="cc-go" aria-hidden="true">←</span>
-    </a>
-    <div class="choose-card tbd">
-      <span class="cc-num">3</span>
-      <span class="cc-body"><strong>עוד בקרוב</strong><span class="cc-sub">בהמשך יתווסף כאן עוד תוכן</span></span>
-    </div>
-  </nav>
+  <!-- ═══ אקורדיון ═══ -->
+  <div class="accordion">
 
-  <!-- ═══ סיפור העיר ═══ -->
-  <section class="story reveal" id="history">
-    <div class="sec-title">
-      <h2>ההתיישבות החרדית בחריש</h2>
-      <span class="gem-divider"></span>
-    </div>
-
+    <!-- 1 · ההיסטוריה החרדית -->
+    <section class="acc-item" id="history">
+      <button class="acc-head" aria-expanded="false" aria-controls="panel-history">
+        <span class="cc-num">1</span>
+        <span class="cc-body"><strong>ההיסטוריה החרדית</strong><span class="cc-sub">איך חריש נהייתה בית לבני תורה</span></span>
+        <span class="acc-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+      <div class="acc-panel" id="panel-history" role="region" aria-label="ההיסטוריה החרדית">
+        <div class="acc-inner">
+          <div class="story">
     <p>חריש תוכננה במקור כעיר חרדית, אך התוכניות השתנו והציבור החרדי נדחק אל שולי התכנון. בזמן שרבים הרימו ידיים, נותרו כמה קהילות בודדות שלא אמרו נואש — כמה מאות משפחות בני תורה שנאחזו בקרקע והחליטו להקים כאן <strong>מקום תורה</strong>. הריכוז הגדול התגבש בלב העיר, בשכונת אבני חן.</p>
 
     <p>ההתחלה לא היתה פשוטה: עיר חדשה, חוסרים בסיסיים, ולא תמיד קבלת פנים חמה. אבל המשפחות החלוצות דבקו במטרה — וכמו בכל מקום שבו מתחילה התיישבות חרדית, מה שהתחיל כגרעין קטן רק הלך והתרחב.</p>
@@ -289,101 +314,41 @@
       <span class="la-tag">מבט קדימה · בתכנון</span>
       <p>כחלק מהפיכת חריש למרכז עירוני גדול, מקודמת הקמת <strong>תחנת רכבת</strong> לעיר במסגרת "מסילת מנשה" — קו רכבת חדש לאורך כביש 6. לפי החלופה המובילה, התחנה תוקם ממערב לכביש 6 ותחובר לעיר בגשר עילי, בצמוד למסוף תחבורה ציבורית. התוכנית נמצאת בשלבי אישור ותכנון — מועד ביצוע טרם נקבע.</p>
     </div>
-  </section>
-
-  <!-- ═══ כותרת המדריך ═══ -->
-  <div class="dir-head reveal" id="directory">
-    <h2>המדריך המקומי</h2>
-    <span class="gem-divider"></span>
-    <p>בתי כנסת, חינוך, קניות, בריאות ותחבורה — כל מה שמשפחה חרדית צריכה, במרחק הליכה משכונת אבני חן.</p>
-  </div>
-
-  <div class="cats">
-
-    <!-- ═══ בתי כנסת ═══ -->
-    <section class="cat reveal" id="shuls">
-      <div class="cat-head">
-        <span class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 2 L12 22 M5 22 L5 9 L12 4 L19 9 L19 22 M3 22 L21 22" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <h2>בתי כנסת</h2>
+          </div>
+        </div>
       </div>
-      <ul>
-        <li><span class="name">שם בית הכנסת</span><span class="meta">נוסח / זמני תפילה</span></li>
-        <li><span class="name">שם בית הכנסת</span><span class="meta">נוסח / זמני תפילה</span></li>
-        <li><span class="todo">— הוסף כאן בתי כנסת —</span></li>
-      </ul>
     </section>
 
-    <!-- ═══ חינוך ═══ -->
-    <section class="cat reveal" id="chinuch">
-      <div class="cat-head">
-        <span class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M3 8 L12 4 L21 8 L12 12 Z M6 10 L6 16 C6 17.5 9 19 12 19 C15 19 18 17.5 18 16 L18 10" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <h2>מוסדות חינוך</h2>
+    <!-- 2 · חנויות, סופרים ומוסדות -->
+    <section class="acc-item" id="directory">
+      <button class="acc-head" aria-expanded="false" aria-controls="panel-directory">
+        <span class="cc-num">2</span>
+        <span class="cc-body"><strong>חנויות, סופרים ומוסדות</strong><span class="cc-sub">כל מה שמשפחה חרדית צריכה בחריש</span></span>
+        <span class="acc-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+      <div class="acc-panel" id="panel-directory" role="region" aria-label="חנויות, סופרים ומוסדות">
+        <div class="acc-inner">
+          <div class="plain-list">
+            <h3>קניות ומזון</h3>
+            <ul>
+              <li>מעיין 2000 — אבני חן</li>
+              <li>מעיין 2000 — החורש</li>
+              <li>סופר סטור — החורש (2 סניפים)</li>
+              <li>מכולת מה שצריך — הפרחים</li>
+              <li>סופר KT — בצוותא</li>
+            </ul>
+          </div>
+        </div>
       </div>
-      <ul>
-        <li><span class="name">תלמוד תורה / חיידר</span><span class="meta">שם + גילאים</span></li>
-        <li><span class="name">בית ספר / סמינר</span><span class="meta">שם</span></li>
-        <li><span class="name">גני ילדים</span><span class="meta">שם</span></li>
-        <li><span class="todo">— הוסף כאן מוסדות —</span></li>
-      </ul>
     </section>
 
-    <!-- ═══ קניות ומזון ═══ -->
-    <section class="cat reveal" id="shopping">
-      <div class="cat-head">
-        <span class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M5 7 L19 7 L18 20 L6 20 Z M8 7 C8 4.5 9.5 3 12 3 C14.5 3 16 4.5 16 7" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-        <h2>קניות ומזון</h2>
+    <!-- 3 · עוד בקרוב -->
+    <section class="acc-item tbd">
+      <div class="acc-head static">
+        <span class="cc-num">3</span>
+        <span class="cc-body"><strong>עוד בקרוב</strong><span class="cc-sub">בהמשך יתווסף כאן עוד תוכן</span></span>
       </div>
-      <ul>
-        <li>מעיין 2000 — אבני חן</li>
-        <li>מעיין 2000 — החורש</li>
-        <li>סופר סטור — החורש (2 סניפים)</li>
-        <li>מכולת מה שצריך — הפרחים</li>
-        <li>סופר KT — בצוותא</li>
-      </ul>
     </section>
-
-    <!-- ═══ בריאות ═══ -->
-    <section class="cat reveal" id="health">
-      <div class="cat-head">
-        <span class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M12 5 L12 19 M5 12 L19 12" stroke-linecap="round"/><rect x="3" y="3" width="18" height="18" rx="4"/></svg></span>
-        <h2>בריאות</h2>
-      </div>
-      <ul>
-        <li><span class="name">קופת חולים</span><span class="meta">שם + כתובת</span></li>
-        <li><span class="name">בית מרקחת</span><span class="meta">שם</span></li>
-        <li><span class="name">טיפת חלב</span><span class="meta">כתובת</span></li>
-        <li><span class="todo">— הוסף כאן שירותי בריאות —</span></li>
-      </ul>
-    </section>
-
-    <!-- ═══ מקוואות ═══ -->
-    <section class="cat reveal" id="mikvaot">
-      <div class="cat-head">
-        <span class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 14 C6 12 8 12 10 14 C12 16 14 16 16 14 C18 12 20 12 21 13 M4 18 C6 16 8 16 10 18 C12 20 14 20 16 18 C18 16 20 16 21 17" stroke-linecap="round"/></svg></span>
-        <h2>מקוואות</h2>
-      </div>
-      <ul>
-        <li><span class="name">מקווה טהרה</span><span class="meta">כתובת / שעות</span></li>
-        <li><span class="name">מקווה כלים</span><span class="meta">כתובת</span></li>
-        <li><span class="todo">— הוסף כאן מקוואות —</span></li>
-      </ul>
-    </section>
-
-    <!-- ═══ תחבורה ═══ -->
-    <section class="cat reveal" id="transport">
-      <div class="cat-head">
-        <span class="cat-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="5" y="4" width="14" height="13" rx="2"/><path d="M5 12 L19 12 M8 20 L8 17 M16 20 L16 17" stroke-linecap="round"/><circle cx="8.5" cy="14.5" r="1" fill="currentColor" stroke="none"/><circle cx="15.5" cy="14.5" r="1" fill="currentColor" stroke="none"/></svg></span>
-        <h2>תחבורה</h2>
-      </div>
-      <ul>
-        <li><span class="name">קווי אוטובוס לבני ברק</span><span class="meta">מספרי קווים</span></li>
-        <li><span class="name">קווים לירושלים</span><span class="meta">מספרי קווים</span></li>
-        <li><span class="name">הסעות מיוחדות</span><span class="meta">פרטים</span></li>
-        <li><span class="todo">— הוסף כאן פרטי תחבורה —</span></li>
-      </ul>
-    </section>
-
-
 
   </div>
 </main>
@@ -418,6 +383,29 @@
   function onScroll(){ if (window.scrollY > 40) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
+})();
+(function() {
+  var heads = document.querySelectorAll('.acc-head:not(.static)');
+  heads.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.closest('.acc-item');
+      var panel = item.querySelector('.acc-panel');
+      if (item.classList.contains('open')) {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        requestAnimationFrame(function(){ requestAnimationFrame(function(){ panel.style.maxHeight = '0px'; }); });
+        item.classList.remove('open');
+        btn.setAttribute('aria-expanded', 'false');
+      } else {
+        item.classList.add('open');
+        btn.setAttribute('aria-expanded', 'true');
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        panel.addEventListener('transitionend', function te(e){
+          if (e.propertyName === 'max-height' && item.classList.contains('open')) panel.style.maxHeight = 'none';
+          panel.removeEventListener('transitionend', te);
+        });
+      }
+    });
+  });
 })();
 </script>
 </body>
