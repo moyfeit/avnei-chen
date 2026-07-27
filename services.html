@@ -261,6 +261,11 @@
   }
   .plain-list h3 ~ h3 { margin-top: 26px; }
   .plain-list ul + h3 { margin-top: 26px; }
+  .nbhd {
+    font-size: 13px; font-weight: 700; letter-spacing: .08em;
+    color: var(--gold); margin: 16px 0 4px;
+  }
+  .plain-list h3 + .nbhd { margin-top: 10px; }
   .plain-list ul { list-style: none; margin: 0; padding: 0; }
   .plain-list li {
     font-size: 16px; line-height: 1.7; color: #3A4653;
@@ -271,6 +276,11 @@
     white-space: nowrap;
   }
   .plain-list li:has(.k) { font-size: 15.5px; }
+  .plain-list .itm { display: block; }
+  .plain-list .note {
+    display: block; font-size: 12.5px; font-weight: 600;
+    color: #8A929B; margin-top: 1px;
+  }
   .plain-list li::before {
     content: ""; flex-shrink: 0; width: 6px; height: 6px;
     background: var(--gold); transform: rotate(45deg);
@@ -337,14 +347,53 @@
         <div class="acc-inner">
           <div class="plain-list">
             <h3>אוכל</h3>
+
+            <p class="nbhd">אבני חן</p>
             <ul>
-              <li>מעיין 2000 — אבני חן</li>
-              <li>מעיין 2000 — החורש</li>
-              <li>סופר סטור — החורש (2 סניפים)</li>
-              <li>מכולת מה שצריך — הפרחים</li>
-              <li>סופר KT — בצוותא</li>
+              <li>מעיין 2000</li>
+            </ul>
+
+            <p class="nbhd">דרך ארץ (אבני חן, החורש)</p>
+            <ul>
+              <li>סופר סטור</li>
+              <li>סופר הצינור (כולל סטור)</li>
+            </ul>
+
+            <p class="nbhd">החורש</p>
+            <ul>
+              <li>מעיין 2000</li>
+              <li>סופר סטור</li>
+              <li>גוד מרקט</li>
+            </ul>
+
+            <p class="nbhd">בצוותא</p>
+            <ul>
+              <li>סופר KT</li>
+            </ul>
+
+            <p class="nbhd">הפרחים</p>
+            <ul>
+              <li>מכולת מה שצריך</li>
+            </ul>
+
+            <p class="nbhd">מכירות בעיר</p>
+            <ul>
               <li>משנת יוסף</li>
               <li>המכירה לקהילה</li>
+            </ul>
+
+            <h3>ביגוד</h3>
+            <ul>
+              <li>קידי שיק</li>
+              <li>לידר</li>
+              <li>יידישקייט</li>
+              <li>שרייבר</li>
+            </ul>
+
+            <h3>תשמישי קדושה</h3>
+            <ul>
+              <li>תרי"ג</li>
+              <li>מלאכת הקודש</li>
             </ul>
 
             <h3>מסעדות</h3>
@@ -359,11 +408,32 @@
       </div>
     </section>
 
-    <!-- 3 · עוד בקרוב -->
-    <section class="acc-item tbd">
-      <div class="acc-head static">
+    <!-- 3 · מוסדות -->
+    <section class="acc-item" id="mosdot">
+      <button class="acc-head" aria-expanded="false" aria-controls="panel-mosdot">
         <span class="cc-num">3</span>
-        <span class="cc-body"><strong>עוד בקרוב</strong><span class="cc-sub">בהמשך יתווסף כאן עוד תוכן</span></span>
+        <span class="cc-body"><strong>מוסדות</strong><span class="cc-sub">מוסדות החינוך בעיר</span></span>
+        <span class="acc-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
+      <div class="acc-panel" id="panel-mosdot" role="region" aria-label="מוסדות">
+        <div class="acc-inner">
+          <div class="plain-list">
+            <h3>מוסדות לבנים</h3>
+
+            <p class="nbhd">לבני אשכנז</p>
+            <ul>
+              <li><span class="itm">חיידר סורוצקין<small class="note">עד כיתה ג'</small></span></li>
+              <li><span class="itm">חיידר איילת השחר<small class="note">עד כיתה ה'</small></span></li>
+            </ul>
+
+            <p class="nbhd">לבני עדות המזרח</p>
+            <ul>
+              <li>תלמוד תורה דרך התורה</li>
+              <li>תלמוד תורה איגוד עמלי התורה</li>
+              <li>תלמוד תורה פאר התורה</li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -371,10 +441,9 @@
 </main>
 
 <section class="contact reveal">
-  <h2>חסר משהו במדריך?</h2>
+  <h2>המדריך עדיין בבנייה</h2>
   <div class="rule"></div>
-  <p class="lead">יש מוסד, חנות או שירות שכדאי להוסיף? נשמח לשמוע ולעדכן.</p>
-  <p class="lead">לפרטים ובירורים — <a href="community.html#contact" style="color:var(--gold-soft);font-weight:700;">אנשי הקשר של הקהילה</a></p>
+  <p class="lead">אנחנו ממשיכים לאסוף ולעדכן — עוד תוכן יתווסף כאן בקרוב.</p>
 </section>
 
 <footer>

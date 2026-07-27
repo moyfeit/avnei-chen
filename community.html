@@ -261,6 +261,19 @@
     text-align: left; font-family: 'Suez One', serif; font-weight: 400;
     color: var(--sapphire); font-size: 17px; margin-top: 24px !important;
   }
+  .diary-more { max-height: 0; overflow: hidden; transition: max-height .45s ease; }
+  .diary-toggle {
+    display: flex; width: fit-content; align-items: center; gap: 8px;
+    margin: 18px auto 0; padding: 10px 22px;
+    background: none; border: 1.5px solid var(--gold); border-radius: 999px;
+    color: var(--gold); font-family: inherit; font-size: 15px; font-weight: 700;
+    cursor: pointer; transition: background .2s ease, color .2s ease;
+  }
+  .diary-toggle:hover { background: var(--gold); color: #FFF; }
+  .diary-toggle:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+  .dt-chev { display: flex; transition: transform .3s ease; }
+  .dt-chev svg { width: 17px; height: 17px; }
+  .diary-toggle[aria-expanded="true"] .dt-chev { transform: rotate(180deg); }
   @media (max-width: 520px) { .diary { padding: 38px 20px 34px; } }
 </style>
 
@@ -273,6 +286,7 @@
     <div class="diary-body">
       <p><span class="d-open">הקדמה קצרה:</span> איש פשוט אני, לא ברחתי מהשבי ולא קפצתי ממסוק, וגלישת גלים זה ממש לא התחום עבורי. גדלתי בבני ברק, המשכתי לישיבה חשובה במרכז הארץ, ולאחר נישואי עברתי להתגורר בירושלים ולמדתי בכוללים שם. בשלב מסויים הבנתי שלא תהיה באפשרותי לרכוש דירה באחת מערי הקודש החרדיות, ופניתי לחפש קורת גג שתהיה בהישג ידי. שכונת אבני חן בחריש התאימה עבורי מכל הבחינות — והשאר היסטוריה.</p>
 
+      <div class="diary-more" id="diary-more">
       <p>אז מה מצאתי כאן? מצאתי אנשים שלווים ושמחים, מצאתי תורה וגדולה במקום אחד ובזול. שילוב נדיר שכמעט ולא קיים בשום מקום אחר בארץ. ראשית, אין מי שמבקר במקום ולא נשבה ביופי המקום, המרחבים, כרי הדשא, הבניינים המרווחים והמטופחים, ועוד ועוד — דברים שקשה למצוא גם בערים השייכות למגזר הכללי, קל וחומר בציבור החרדי. ומאידך, את האוירה התורנית במקום קשה לפספס: קול התורה הבוקע מהכוללים הרבים הפזורים בשכונה, קול התפילות מבתי הכנסת השונים, ומעל הכל אוירת השבת — אותו שקט עילאי שמלווה את כולנו בשבת קודש, השלווה, הכבישים הריקים ממכוניות, הרחובות המלאים במתפללים ששבים מבית הכנסת. חריש של מעלה.</p>
 
       <p>מבחינה תורנית, יש בשכונה את בית הכנסת של הקהילה הליטאית שפעיל כעת בשבתות, ובימי חול מתקיימים בו שיעורים כסדרן; בעוד מספר חודשים, משיעבור למשכן הקבע, יחל להתפלל בו גם בימי חול. בנוסף, בשכונה מספר בתי כנסת של עדות המזרח, ביניהם בית הכנסת 'מקדש שלמה' מבתי הכנסת הפעילים בעיר, ובו שטיבל' עם מניינים בחלק ניכר משעות היום. כמו כן, כמה ממוסדות החינוך המרכזיים בעיר ממוקמים בשכונה, דוגמת ת"ת 'עטרת שלמה' ומוסדות נוספים.</p>
@@ -286,6 +300,12 @@
       <p>אסכם בפשטות: חריש בתנופה, תנופה גדולה. כל מי שמכיר את העיר מבפנים חש וחווה את זה. זה הזמן לקפוץ על הרכבת ולהצטרף להצלחה. אל תאמר מחר — מחר זה בוודאות מאוחר.</p>
 
       <p class="diary-sign">שלכם, יעקב</p>
+      </div>
+
+      <button class="diary-toggle" aria-expanded="false" aria-controls="diary-more">
+        <span class="dt-label">המשך קריאה</span>
+        <span class="dt-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
     </div>
   </div>
 </section>
@@ -423,6 +443,34 @@
     }, { threshold: 0.12 });
     revealEls.forEach(function(el) { io.observe(el); });
   }
+})();
+</script>
+
+<script>
+(function() {
+  var btn = document.querySelector('.diary-toggle');
+  var panel = document.getElementById('diary-more');
+  if (!btn || !panel) return;
+  var label = btn.querySelector('.dt-label');
+  btn.addEventListener('click', function() {
+    var open = btn.getAttribute('aria-expanded') === 'true';
+    if (open) {
+      panel.style.maxHeight = panel.scrollHeight + 'px';
+      requestAnimationFrame(function(){ requestAnimationFrame(function(){ panel.style.maxHeight = '0px'; }); });
+      btn.setAttribute('aria-expanded', 'false');
+      label.textContent = 'המשך קריאה';
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + 'px';
+      btn.setAttribute('aria-expanded', 'true');
+      label.textContent = 'הצג פחות';
+      panel.addEventListener('transitionend', function te(e) {
+        if (e.propertyName === 'max-height' && btn.getAttribute('aria-expanded') === 'true') {
+          panel.style.maxHeight = 'none';
+        }
+        panel.removeEventListener('transitionend', te);
+      });
+    }
+  });
 })();
 </script>
 </body>
