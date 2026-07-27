@@ -234,19 +234,19 @@
 
   /* ── אקורדיון ── */
   .accordion { max-width: 660px; margin: 24px auto 0; padding: 0 22px; display: flex; flex-direction: column; gap: 12px; }
-  .acc-item { background: #FFF; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 8px 24px rgba(22,50,79,.06); overflow: hidden; }
-  .acc-head { width: 100%; display: flex; align-items: center; gap: 14px; background: none; border: none; cursor: pointer; text-align: right; padding: 15px 18px; font-family: inherit; }
+  .acc-item { background: none; border: none; border-radius: 0; box-shadow: none; overflow: visible; }
+  .acc-head { width: 100%; display: flex; align-items: center; gap: 14px; background: #FFF; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 8px 24px rgba(22,50,79,.06); cursor: pointer; text-align: right; padding: 15px 18px; font-family: inherit; }
   .acc-head:focus-visible { outline: 3px solid var(--gold); outline-offset: -3px; border-radius: 13px; }
   .acc-chev { flex-shrink: 0; color: var(--gold); display: flex; transition: transform .3s ease; }
   .acc-chev svg { width: 19px; height: 19px; }
   .acc-item.open .acc-chev { transform: rotate(180deg); }
   .acc-panel { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
   .acc-item.open .acc-panel { max-height: none; }
-  .acc-inner { padding: 2px 20px 22px; }
+  .acc-inner { padding: 16px 8px 4px; }
   .acc-inner .story { max-width: none; margin: 0; padding: 0; }
   .acc-inner .story p:first-child { margin-top: 4px; }
   .acc-inner .cats { margin-top: 4px; }
-  .acc-item.tbd { background: #FBFAF6; border-style: dashed; border-color: #D8CEB6; box-shadow: none; }
+  .acc-item.tbd .acc-head { background: #FBFAF6; border-style: dashed; border-color: #D8CEB6; box-shadow: none; }
   .acc-head.static { cursor: default; }
   .acc-item.tbd .cc-num { background: #F0EBDD; color: #B9A97E; }
   .acc-item.tbd .cc-body strong { color: #9AA0A8; }
@@ -259,11 +259,18 @@
     margin: 0 0 12px; padding-bottom: 8px;
     border-bottom: 2px solid #EFE6D0;
   }
+  .plain-list h3 ~ h3 { margin-top: 26px; }
+  .plain-list ul + h3 { margin-top: 26px; }
   .plain-list ul { list-style: none; margin: 0; padding: 0; }
   .plain-list li {
     font-size: 16px; line-height: 1.7; color: #3A4653;
     padding: 7px 0 7px 0; display: flex; align-items: baseline; gap: 10px;
   }
+  .plain-list li .k {
+    font-size: 12.5px; font-weight: 600; color: #8A929B;
+    white-space: nowrap;
+  }
+  .plain-list li:has(.k) { font-size: 15.5px; }
   .plain-list li::before {
     content: ""; flex-shrink: 0; width: 6px; height: 6px;
     background: var(--gold); transform: rotate(45deg);
@@ -319,23 +326,33 @@
       </div>
     </section>
 
-    <!-- 2 · חנויות, סופרים ומוסדות -->
+    <!-- 2 · קניות -->
     <section class="acc-item" id="directory">
       <button class="acc-head" aria-expanded="false" aria-controls="panel-directory">
         <span class="cc-num">2</span>
-        <span class="cc-body"><strong>חנויות, סופרים ומוסדות</strong><span class="cc-sub">כל מה שמשפחה חרדית צריכה בחריש</span></span>
+        <span class="cc-body"><strong>קניות</strong><span class="cc-sub">כל מה שמשפחה חרדית צריכה בחריש</span></span>
         <span class="acc-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </button>
-      <div class="acc-panel" id="panel-directory" role="region" aria-label="חנויות, סופרים ומוסדות">
+      <div class="acc-panel" id="panel-directory" role="region" aria-label="קניות">
         <div class="acc-inner">
           <div class="plain-list">
-            <h3>קניות ומזון</h3>
+            <h3>אוכל</h3>
             <ul>
               <li>מעיין 2000 — אבני חן</li>
               <li>מעיין 2000 — החורש</li>
               <li>סופר סטור — החורש (2 סניפים)</li>
               <li>מכולת מה שצריך — הפרחים</li>
               <li>סופר KT — בצוותא</li>
+              <li>משנת יוסף</li>
+              <li>המכירה לקהילה</li>
+            </ul>
+
+            <h3>מסעדות</h3>
+            <ul>
+              <li>פיצה שמש <span class="k">העדה החרדית</span></li>
+              <li>פיצה סטורי <span class="k">לנדא</span></li>
+              <li>מאפייה ומסעדה חלבית הודיה <span class="k">לנדא</span></li>
+              <li>מאפיית מזרחי <span class="k">מחפוד</span></li>
             </ul>
           </div>
         </div>
