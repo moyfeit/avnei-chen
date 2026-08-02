@@ -203,6 +203,34 @@
     background: linear-gradient(90deg, var(--gold), var(--gold-soft)); }
   .ac-card p { color:#3A4653; font-size:16.5px; line-height:1.95; margin:0 0 16px; }
   .ac-card p:last-child { margin-bottom:0; }
+
+  /* מפת השכונה */
+  .ac-map { margin: 26px 0 0; }
+  .ac-map img {
+    display: block; width: 100%; height: auto;
+    border-radius: 14px; border: 1px solid var(--line);
+  }
+  .ac-map figcaption { margin-top: 14px; }
+  .map-title {
+    font-family: 'Suez One', serif; font-weight: 400;
+    font-size: 17px; color: var(--sapphire); margin: 0 0 10px !important;
+  }
+  .map-legend { list-style: none; margin: 0; padding: 0; }
+  .map-legend li {
+    display: flex; align-items: center; gap: 9px;
+    font-size: 14.5px; color: #3A4653; padding: 4px 0;
+  }
+  .sw {
+    flex-shrink: 0; width: 14px; height: 14px;
+    border-radius: 3px; display: inline-block;
+  }
+  .sw-orange { background: #F58220; }
+  .sw-blue { background: #2A3B7D; }
+  .sw-green { background: #1E6B3A; }
+  .map-note {
+    font-size: 13.5px; color: #7A838D; line-height: 1.6;
+    margin: 12px 0 0 !important;
+  }
 </style>
 
 <section class="about-community">
@@ -214,6 +242,19 @@
     <p>הקהילה מונה כיום כ-40 משפחות מבני הציבור הליטאי, עם בוגרים ממגוון הישיבות הליטאיות. זוהי קהילה צעירה ותוססת, עם ממוצע גילאים שבין 23 ל-37.</p>
     <p>הקהילה מתבססת באזור העליון של שכונת אבני חן (מודגש במפה), כשבאזור הקהילה יש כמות גבוהה של ציבור חרדי מבני עדות המזרח, שמהווים מעטפת לחיי הקהילה שלנו.</p>
     <p>הקהילה מתאפיינת בייחודיות נדירה: מחד, נהנים בני הקהילה ממעטפת מושלמת הכוללת את כל הצרכים של משפחה חרדית; ומאידך, החיים בה נוחים ורגועים ונעדרים ממגרעות המגורים בערים הגדולות שבמרכז.</p>
+
+    <figure class="ac-map">
+      <img loading="lazy" decoding="async" src="map-avnei-chen.jpg" alt="מפת מרכז שכונת אבני חן — ריכוזי המגורים החרדיים ובתי הכנסת">
+      <figcaption>
+        <p class="map-title">הנוכחות החרדית בשכונה</p>
+        <ul class="map-legend">
+          <li><i class="sw sw-orange"></i>בניינים עם 100% חרדים</li>
+          <li><i class="sw sw-blue"></i>בניינים עם אחוזים גבוהים של חרדים</li>
+          <li><i class="sw sw-green"></i>בתי כנסת</li>
+        </ul>
+        <p class="map-note">גם בבניינים שאינם מסומנים מתגוררים חרדים רבים — רק עדיין לא באחוזים משמעותיים.</p>
+      </figcaption>
+    </figure>
   </div>
 </section>
 
