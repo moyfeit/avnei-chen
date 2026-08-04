@@ -286,6 +286,40 @@
     content: ""; flex-shrink: 0; width: 6px; height: 6px;
     background: var(--gold); transform: rotate(45deg);
   }
+
+  /* ───── מסך רחב (מחשב) ───── */
+  @media (min-width: 900px) {
+    .page-head { max-width: 860px; }
+    .page-head h1 { font-size: 46px; }
+    .page-head p { font-size: 18px; }
+
+    .accordion { max-width: 1040px; gap: 16px; }
+    .acc-head { padding: 20px 26px; }
+    .cc-num { width: 44px; height: 44px; font-size: 23px; }
+    .cc-body strong { font-size: 19px; }
+    .cc-body .cc-sub { font-size: 14.5px; }
+    .acc-inner { padding: 22px 30px 10px; }
+
+    /* טקסט ההיסטוריה — עמודה ברוחב נוח לקריאה */
+    .acc-inner .story { max-width: 760px; }
+    .story p { font-size: 17.5px; line-height: 2; }
+    .sub-h { font-size: 23px; }
+
+    /* הרשימות — שני טורים */
+    .plain-list {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 10px 48px; align-items: start;
+    }
+    .plain-list .pl-group h3 { margin-top: 0 !important; }
+    .plain-list li { font-size: 16.5px; }
+
+    .contact h2 { font-size: 34px; }
+  }
+
+  @media (min-width: 1280px) {
+    .accordion { max-width: 1140px; }
+    .plain-list { grid-template-columns: repeat(3, 1fr); gap: 10px 44px; }
+  }
 </style>
 </head>
 <body>
@@ -347,7 +381,8 @@
       <div class="acc-panel" id="panel-directory" role="region" aria-label="קניות">
         <div class="acc-inner">
           <div class="plain-list">
-            <h3>אוכל</h3>
+            <div class="pl-group">
+<h3>אוכל</h3>
 
             <p class="nbhd">אבני חן</p>
             <ul>
@@ -382,28 +417,32 @@
               <li>משנת יוסף</li>
               <li>המכירה לקהילה</li>
             </ul>
-
-            <h3>ביגוד</h3>
+            </div>
+            <div class="pl-group">
+<h3>ביגוד</h3>
             <ul>
               <li>קידי שיק</li>
               <li>לידר</li>
               <li>יידישקייט</li>
               <li>שרייבר</li>
             </ul>
-
-            <h3>תשמישי קדושה</h3>
+            </div>
+            <div class="pl-group">
+<h3>תשמישי קדושה</h3>
             <ul>
               <li>תרי"ג</li>
               <li>מלאכת הקודש</li>
             </ul>
-
-            <h3>מסעדות</h3>
+            </div>
+            <div class="pl-group">
+<h3>מסעדות</h3>
             <ul>
               <li>פיצה שמש <span class="k">העדה החרדית</span></li>
               <li>פיצה סטורי <span class="k">לנדא</span></li>
               <li>מאפייה ומסעדה חלבית הודיה <span class="k">לנדא</span></li>
               <li>מאפיית מזרחי <span class="k">מחפוד</span></li>
             </ul>
+            </div>
           </div>
         </div>
       </div>
@@ -419,7 +458,8 @@
       <div class="acc-panel" id="panel-mosdot" role="region" aria-label="מוסדות">
         <div class="acc-inner">
           <div class="plain-list">
-            <h3>מוסדות לבנים</h3>
+            <div class="pl-group">
+<h3>מוסדות לבנים</h3>
 
             <p class="nbhd">לבני אשכנז</p>
             <ul>
@@ -433,6 +473,7 @@
               <li>תלמוד תורה איגוד עמלי התורה</li>
               <li>תלמוד תורה פאר התורה</li>
             </ul>
+            </div>
           </div>
         </div>
       </div>

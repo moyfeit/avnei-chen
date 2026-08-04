@@ -670,6 +670,42 @@
   .topnav.scrolled a.active { color: var(--gold); }
   .topnav { transition: background .3s ease, box-shadow .3s ease; }
   .topnav a { transition: color .3s ease; }
+
+  /* ───── מסך רחב (מחשב) ───── */
+  @media (min-width: 900px) {
+    /* גלריות: רשת במקום גלילה אופקית */
+    .neigh { max-width: 1000px; }
+    .neigh p { font-size: 18.5px; line-height: 1.8; margin-bottom: 26px; }
+    .photo-strip {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 26px;
+      overflow: visible;
+      scroll-snap-type: none;
+      padding: 0;
+    }
+    .photo-strip figure { flex: none; }
+    .photo-strip figcaption { font-size: 15px; }
+
+    /* ארבע הסיבות — ארבעה בשורה */
+    .gems { grid-template-columns: repeat(4, 1fr); gap: 20px; }
+    .gem-card h3 { font-size: 21px; }
+
+    /* אנשי קשר — שני טורים */
+    .contacts-list {
+      max-width: 800px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+    }
+
+    .price-box { padding: 40px 32px 42px; }
+  }
+
+  @media (min-width: 1200px) {
+    .wrap { max-width: 1160px; }
+    .neigh { max-width: 1080px; }
+  }
 </style>
 </head>
 <body>

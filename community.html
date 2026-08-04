@@ -232,6 +232,37 @@
     font-size: 13.5px; color: #7A838D; line-height: 1.6;
     margin: 12px 0 0 !important;
   }
+
+  /* ───── מסך רחב (מחשב) ───── */
+  @media (min-width: 900px) {
+    .about-community { max-width: 940px; }
+    .ac-card { padding: 60px 70px 54px; }
+    .ac-title { font-size: 34px; }
+    .ac-card p { font-size: 17.5px; line-height: 2; }
+
+    /* מפה ומקרא זה לצד זה */
+    .ac-map {
+      display: grid; grid-template-columns: 1.7fr 1fr;
+      gap: 30px; align-items: center;
+    }
+    .ac-map figcaption { margin-top: 0; }
+
+    /* תמונות הקהילה — שני טורים */
+    .blocks { max-width: 1060px; display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .c-block h2 { font-size: 23px; }
+
+    /* היומן */
+    .diary-wrap { max-width: 860px; }
+    .diary { padding: 56px 64px 50px; }
+    .diary-body p { font-size: 17.5px; line-height: 2; }
+
+    /* אנשי קשר — שני טורים */
+    .contacts-list {
+      max-width: 780px; display: grid;
+      grid-template-columns: 1fr 1fr; gap: 16px;
+    }
+    .contact h2 { font-size: 34px; }
+  }
 </style>
 
 <section class="about-community">
