@@ -305,10 +305,17 @@
     .story p { font-size: 17.5px; line-height: 2; }
     .sub-h { font-size: 23px; }
 
-    /* הרשימות — שני טורים */
+    /* הרשימות — שני טורים מאוזנים */
     .plain-list {
-      display: grid; grid-template-columns: 1fr 1fr;
-      gap: 10px 48px; align-items: start;
+      column-count: 2;
+      column-gap: 54px;
+      column-fill: balance;
+    }
+    .plain-list .pl-group {
+      break-inside: avoid;
+      -webkit-column-break-inside: avoid;
+      page-break-inside: avoid;
+      margin-bottom: 30px;
     }
     .plain-list .pl-group h3 { margin-top: 0 !important; }
     .plain-list li { font-size: 16.5px; }
@@ -318,7 +325,7 @@
 
   @media (min-width: 1280px) {
     .accordion { max-width: 1140px; }
-    .plain-list { grid-template-columns: repeat(3, 1fr); gap: 10px 44px; }
+    .plain-list { column-gap: 70px; }
   }
 </style>
 </head>
@@ -382,7 +389,7 @@
         <div class="acc-inner">
           <div class="plain-list">
             <div class="pl-group">
-<h3>אוכל</h3>
+<h3>מזון</h3>
 
             <p class="nbhd">אבני חן</p>
             <ul>
