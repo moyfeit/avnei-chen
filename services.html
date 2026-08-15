@@ -327,15 +327,34 @@
     .accordion { max-width: 1140px; }
     .plain-list { column-gap: 70px; }
   }
+  .mission-note {
+    margin: 0;
+    padding: 11px 20px;
+    text-align: center;
+    background: #FBF4E4;
+    border-bottom: 1px solid #ECE0C4;
+    color: #6B6250;
+    font-size: 13.5px;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+  @media (min-width: 900px) { .mission-note { font-size: 14.5px; padding: 13px 24px; } }
+  .mission-note span { display: block; }
+  @media (min-width: 700px) {
+    .mission-note span { display: inline; }
+    .mission-note span + span::before { content: " "; }
+  }
 </style>
 </head>
 <body>
 
 <nav class="topbar">
-  <a href="index.html">ראשי</a>
-  <a href="community.html">הקהילה שלנו</a>
-  <a href="services.html" class="active">חריש החרדית</a>
+  <a href="/">ראשי</a>
+  <a href="/community">הקהילה שלנו</a>
+  <a href="/services" class="active">חריש החרדית</a>
 </nav>
+
+<p class="mission-note">האתר נבנה על ידי בני הקהילה, ללא מטרת רווח.</p>
 
 <main>
   <div class="page-head">
