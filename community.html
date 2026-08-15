@@ -153,6 +153,8 @@
   <a href="/services">חריש החרדית</a>
 </nav>
 
+<p class="mission-note">האתר נבנה על ידי בני הקהילה, ללא מטרת רווח.</p>
+
 <div class="lightbox" id="lightbox">
   <button class="lb-close" aria-label="סגירה">&times;</button>
   <img decoding="async" alt="">
@@ -535,6 +537,23 @@
   @media (prefers-reduced-motion: reduce) {
     .reveal { opacity: 1; transform: none; }
   }
+  .mission-note {
+    margin: 0;
+    padding: 11px 20px;
+    text-align: center;
+    background: #FBF4E4;
+    border-bottom: 1px solid #ECE0C4;
+    color: #6B6250;
+    font-size: 13.5px;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+  @media (min-width: 900px) { .mission-note { font-size: 14.5px; padding: 13px 24px; } }
+  .mission-note span { display: block; }
+  @media (min-width: 700px) {
+    .mission-note span { display: inline; }
+    .mission-note span + span::before { content: " "; }
+  }
 </style>
 <footer>
   <span class="gem">◆</span> קהילת בני הישיבות אבני חן — חריש <span class="gem">◆</span>
@@ -622,4 +641,3 @@
 </script>
 </body>
 </html>
-
