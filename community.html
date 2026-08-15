@@ -148,14 +148,14 @@
 <body>
 
 <nav class="topbar">
-  <a href="index.html">ראשי</a>
-  <a href="community.html" class="active">הקהילה שלנו</a>
-  <a href="services.html">חריש החרדית</a>
+  <a href="/">ראשי</a>
+  <a href="/community" class="active">הקהילה שלנו</a>
+  <a href="/services">חריש החרדית</a>
 </nav>
 
 <div class="lightbox" id="lightbox">
   <button class="lb-close" aria-label="סגירה">&times;</button>
-  <img loading="lazy" decoding="async" src="" alt="">
+  <img decoding="async" alt="">
 </div>
 
 
@@ -390,7 +390,6 @@
     border: 2px dashed var(--gold);
     border-radius: 28px 20px 32px 18px / 22px 30px 20px 28px;
   }
-  .diary-border { display: none; }
   .diary-title {
     font-family: 'Suez One', serif; color: var(--sapphire);
     font-size: clamp(21px, 5vw, 28px); line-height: 1.45;
@@ -401,10 +400,6 @@
     background: linear-gradient(90deg, transparent, var(--gold), transparent);
     position: relative; z-index: 1;
   }
-  .diary-sub {
-    font-size: 15px; letter-spacing: 5px; font-weight: 600;
-    color: var(--gold); margin: 0; position: relative; z-index: 1;
-  }
   .diary-lead {
     font-size: 14px; letter-spacing: 3px; font-weight: 600;
     color: var(--gold); margin: 0 0 22px; position: relative; z-index: 1;
@@ -414,7 +409,7 @@
     font-size: 16.5px; line-height: 1.95; color: #3A4653;
     margin: 0 0 16px; text-align: right;
   }
-  .diary-body p:last-child { margin-bottom: 0; }
+  .diary-body p:last-of-type { margin-bottom: 0; }
   .d-open { font-weight: 700; color: var(--sapphire); }
   .diary-sign {
     text-align: left; font-family: 'Suez One', serif; font-weight: 400;
@@ -555,7 +550,7 @@
       lbImg.src = im.src; lbImg.alt = im.alt || ''; lb.classList.add('open');
     });
   });
-  function close() { lb.classList.remove('open'); lbImg.src = ''; }
+  function close() { lb.classList.remove('open'); lbImg.removeAttribute('src'); }
   lb.addEventListener('click', close);
   document.addEventListener('keydown', function(e){ if(e.key==='Escape') close(); });
 })();
@@ -615,7 +610,8 @@
       btn.setAttribute('aria-expanded', 'true');
       label.textContent = 'הצג פחות';
       panel.addEventListener('transitionend', function te(e) {
-        if (e.propertyName === 'max-height' && btn.getAttribute('aria-expanded') === 'true') {
+        if (e.target !== panel || e.propertyName !== 'max-height') return;
+        if (btn.getAttribute('aria-expanded') === 'true') {
           panel.style.maxHeight = 'none';
         }
         panel.removeEventListener('transitionend', te);
@@ -626,3 +622,4 @@
 </script>
 </body>
 </html>
+
