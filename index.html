@@ -126,13 +126,25 @@
   }
   .hero > * { position: relative; z-index: 1; }
   .hero-crest {
-    width: 64px; height: 64px;
-    margin: 0 auto 14px;
+    width: 76px; height: 76px;
+    margin: 0 auto 16px;
     display: flex;
     align-items: center;
     justify-content: center;
+    filter: drop-shadow(0 6px 14px rgba(184,137,46,.28));
   }
   .hero-crest svg { width: 100%; height: 100%; }
+  .gem-shine {
+    animation: gemSweep 5.5s ease-in-out infinite;
+  }
+  @keyframes gemSweep {
+    0%   { transform: translateX(0); }
+    45%  { transform: translateX(96px); }
+    100% { transform: translateX(96px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .gem-shine { animation: none; }
+  }
   .eyebrow-top {
     font-size: 19px;
     font-weight: 600;
@@ -307,10 +319,25 @@
     margin-bottom: 10px;
   }
   .sec-head .gem-divider {
-    width: 14px; height: 14px;
-    margin: 14px auto 0;
-    background: var(--gold);
+    position: relative;
+    width: 15px; height: 15px;
+    margin: 16px auto 0;
+    background: linear-gradient(135deg, #E3CB8C 0%, var(--gold) 55%, #A87C25 100%);
     transform: rotate(45deg);
+    box-shadow: 0 3px 8px rgba(184,137,46,.3);
+  }
+  .sec-head .gem-divider::before {
+    content: "";
+    position: absolute; inset: 0;
+    border-top: 1px solid rgba(255,248,230,.75);
+    border-right: 1px solid rgba(255,248,230,.55);
+  }
+  .sec-head .gem-divider::after {
+    content: "";
+    position: absolute;
+    top: 50%; left: 0; right: 0;
+    height: 1px;
+    background: rgba(168,124,37,.45);
   }
   .sec-head p { max-width: 560px; margin: 12px auto 0; color: #4A5763; }
 
@@ -711,14 +738,16 @@
 <body>
 
 <nav class="topnav">
-  <a href="index.html" class="active">ראשי</a>
-  <a href="community.html">הקהילה שלנו</a>
-  <a href="services.html">חריש החרדית</a>
+  <a href="/" class="active">ראשי</a>
+  <a href="/community">הקהילה שלנו</a>
+  <a href="/services">חריש החרדית</a>
 </nav>
+
+<p class="mission-note"><span>האתר נבנה שלא על מנת לקבל פרס,</span><span>ומטרת הרווח היחידה היא צירוף חברים לקהילה.</span></p>
 
 <div class="lightbox" id="lightbox">
   <button class="lb-close" aria-label="סגירה">&times;</button>
-  <img loading="lazy" decoding="async" src="" alt="">
+  <img decoding="async" alt="">
 </div>
 
 
@@ -726,8 +755,34 @@
 <header class="hero">
   <div class="hero-crest">
     <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
-      <path d="M20 12 H44 L56 26 L32 54 L8 26 Z" stroke="#B8892E" stroke-width="2.2" fill="none" stroke-linejoin="round"/>
-      <path d="M8 26 H56 M20 12 L26 26 L32 54 M44 12 L38 26 L32 54 M26 26 H38" stroke="#B8892E" stroke-width="1.5" opacity="0.65"/>
+      <defs>
+        <clipPath id="gemCut">
+          <path d="M20 12 H44 L56 26 L32 54 L8 26 Z"/>
+        </clipPath>
+        <linearGradient id="gemShine" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%"   stop-color="#FFF8E6" stop-opacity="0"/>
+          <stop offset="50%"  stop-color="#FFF8E6" stop-opacity="0.85"/>
+          <stop offset="100%" stop-color="#FFF8E6" stop-opacity="0"/>
+        </linearGradient>
+      </defs>
+
+      <g clip-path="url(#gemCut)">
+        <!-- פאות הכתר -->
+        <path d="M20 12 H44 L38 26 H26 Z" fill="#EBD7A2"/>
+        <path d="M20 12 L26 26 L8 26 Z"   fill="#D9BC72"/>
+        <path d="M44 12 L38 26 L56 26 Z"  fill="#C9A455"/>
+        <!-- פאות הפביליון -->
+        <path d="M8 26 H26 L32 54 Z"      fill="#C4A054"/>
+        <path d="M26 26 H38 L32 54 Z"     fill="#E3CB8C"/>
+        <path d="M38 26 H56 L32 54 Z"     fill="#B8892E"/>
+        <!-- הבזק אור -->
+        <rect class="gem-shine" x="-26" y="0" width="20" height="64" fill="url(#gemShine)"/>
+      </g>
+
+      <!-- קווי הליטוש -->
+      <path d="M20 12 H44 L56 26 L32 54 L8 26 Z" stroke="#A87C25" stroke-width="2" fill="none" stroke-linejoin="round"/>
+      <path d="M8 26 H56 M20 12 L26 26 L32 54 M44 12 L38 26 L32 54 M26 26 H38"
+            stroke="#A87C25" stroke-width="1.2" opacity="0.5"/>
     </svg>
   </div>
   <div class="eyebrow-top">קהילת בני הישיבות הליטאית</div>
@@ -926,12 +981,29 @@
     .peek-text strong { font-size: 15.5px; }
     .peek-text span { font-size: 12.5px; }
   }
+  .mission-note {
+    margin: 0;
+    padding: 11px 20px;
+    text-align: center;
+    background: #FBF4E4;
+    border-bottom: 1px solid #ECE0C4;
+    color: #6B6250;
+    font-size: 13.5px;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+  @media (min-width: 900px) { .mission-note { font-size: 14.5px; padding: 13px 24px; } }
+  .mission-note span { display: block; }
+  @media (min-width: 700px) {
+    .mission-note span { display: inline; }
+    .mission-note span + span::before { content: " "; }
+  }
 </style>
 
 <!-- ═══════════ קישור לדף הקהילה ═══════════ -->
 <section class="section peek">
   <div class="wrap">
-    <a class="peek-strip reveal" href="community.html">
+    <a class="peek-strip reveal" href="/community">
       <img loading="lazy" decoding="async" src="img-23.jpg" alt="בית הכנסת של הקהילה">
       <span class="peek-text">
         <strong>הקהילה שלנו</strong>
@@ -1049,7 +1121,7 @@
         lb.classList.add('open');
       });
     });
-    function close() { lb.classList.remove('open'); lbImg.src = ''; }
+    function close() { lb.classList.remove('open'); lbImg.removeAttribute('src'); }
     lb.addEventListener('click', close);
     document.addEventListener('keydown', function(e) {
       if (e.key === 'Escape') close();
