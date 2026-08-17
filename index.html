@@ -482,35 +482,35 @@
 
   /* ---------- השוואת שטח שיפוט ---------- */
   .area-compare {
-    max-width: 620px;
-    margin: 30px auto 0;
+    max-width: 470px;
+    margin: 26px auto 0;
     background: #FFF;
     border: 1px solid var(--line);
-    border-radius: 12px;
-    padding: 24px 24px 20px;
+    border-radius: 10px;
+    padding: 16px 18px 13px;
   }
   .area-compare h3 {
-    font-size: 19px;
+    font-size: 16px;
     font-weight: 400;
     text-align: center;
-    margin-bottom: 22px;
+    margin-bottom: 14px;
   }
   .ac-row {
     display: flex;
     align-items: center;
-    gap: 12px;
-    margin-bottom: 14px;
+    gap: 10px;
+    margin-bottom: 9px;
   }
   .ac-row:last-of-type { margin-bottom: 0; }
   .ac-name {
-    width: 66px;
+    width: 58px;
     flex-shrink: 0;
-    font-size: 14.5px;
+    font-size: 13px;
     color: #5A6774;
   }
   .ac-track {
     flex: 1;
-    height: 26px;
+    height: 18px;
     background: #EFEADC;
     border-radius: 3px;
     overflow: hidden;
@@ -526,9 +526,9 @@
   .area-compare .ac-row:nth-of-type(2) .ac-fill { transition-delay: .1s; }
   .area-compare .ac-row:nth-of-type(3) .ac-fill { transition-delay: .2s; }
   .ac-val {
-    width: 62px;
+    width: 50px;
     flex-shrink: 0;
-    font-size: 14.5px;
+    font-size: 13px;
     color: #5A6774;
     text-align: left;
     direction: ltr;
@@ -537,17 +537,17 @@
   .ac-row.main .ac-val { color: var(--sapphire); font-weight: 700; }
   .ac-row.main .ac-fill { background: var(--gold); }
   .neigh .area-compare .ac-note {
-    font-size: 12.5px;
+    font-size: 11.5px;
     color: #8A7B54;
     text-align: center;
-    margin: 20px 0 0;
-    line-height: 1.6;
+    margin: 13px 0 0;
+    line-height: 1.55;
   }
   @media (max-width: 420px) {
-    .area-compare { padding: 20px 16px 16px; }
-    .ac-name { width: 56px; font-size: 13.5px; }
-    .ac-val { width: 52px; font-size: 13.5px; }
-    .ac-row { gap: 9px; }
+    .area-compare { padding: 14px 13px 11px; }
+    .ac-name { width: 50px; font-size: 12.5px; }
+    .ac-val { width: 45px; font-size: 12.5px; }
+    .ac-row { gap: 8px; }
   }
 
   /* ---------- תחבורה ונגישות ---------- */
@@ -559,6 +559,46 @@
     line-height: 1.85;
     margin: 0;
   }
+  .travel {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    max-width: 470px;
+    background: #FFF;
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    margin: 24px auto 0;
+    padding: 13px 6px;
+  }
+  .tv-item { text-align: center; padding: 0 8px; }
+  .tv-item:not(:last-child) { border-inline-end: 1px solid var(--line); }
+  .tv-time {
+    display: block;
+    font-family: 'Suez One', serif;
+    font-size: 21px;
+    color: var(--sapphire);
+    line-height: 1.15;
+  }
+  .tv-time small {
+    font-family: 'Heebo', sans-serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    color: var(--gold);
+    margin-inline-end: 4px;
+  }
+  .tv-to {
+    display: block;
+    font-size: 13px;
+    color: #5A6774;
+    margin-top: 4px;
+  }
+  @media (max-width: 420px) {
+    .travel { padding: 11px 2px; }
+    .tv-item { padding: 0 4px; }
+    .tv-time { font-size: 18px; }
+    .tv-time small { font-size: 10.5px; margin-inline-end: 3px; }
+    .tv-to { font-size: 12px; }
+  }
+
   .lookahead {
     margin-top: 24px;
     border-inline-start: 2px solid var(--gold-soft);
@@ -1084,6 +1124,21 @@
         </div>
         <p>היתרון התחבורתי המרכזי של חריש הוא הצמידות לכביש 6, שמאפשרת יציאה מהירה לכל אזורי המרכז. בתוך העיר פועלים קווי אוטובוס עירוניים לצד קווים בין-עירוניים, ומערך התחבורה הציבורית מתחזק בשנים האחרונות ב"פעימות תגבור": הוספת נסיעות, הארכת שעות הפעילות, ותכנון קווים ישירים נוספים למרכז ולנתניה.</p>
 
+        <div class="travel">
+          <div class="tv-item">
+            <span class="tv-time">42<small>דק'</small></span>
+            <span class="tv-to">בני ברק</span>
+          </div>
+          <div class="tv-item">
+            <span class="tv-time">1:05<small>שע'</small></span>
+            <span class="tv-to">ירושלים</span>
+          </div>
+          <div class="tv-item">
+            <span class="tv-time">1:05<small>שע'</small></span>
+            <span class="tv-to">בית שמש</span>
+          </div>
+        </div>
+
         <div class="lookahead">
           <span class="la-tag">מבט קדימה · בבנייה</span>
           <p>בימים אלה נסלל <strong>כביש חדש</strong> שיקצר את הנסיעה למרכז הארץ בכמה דקות, וסיום העבודות צפוי בתוך חודשים ספורים. בתכנון העתידי אמור הכביש לשמש גם כיציאה ישירה לכביש 6.</p>
@@ -1210,7 +1265,7 @@
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // מוסיף reveal לאלמנטים המרכזיים
-  var targets = document.querySelectorAll('.sec-head, .gem-card, .price-box, .nearby-card, .shiur-block, .life-item, .contact-row, .map-figure, .area-compare');
+  var targets = document.querySelectorAll('.sec-head, .gem-card, .price-box, .nearby-card, .shiur-block, .life-item, .contact-row, .map-figure, .area-compare, .travel');
   targets.forEach(function(el) { el.classList.add('reveal'); });
 
   var revealEls = document.querySelectorAll('.reveal');
