@@ -126,7 +126,13 @@
     z-index: 9999; padding: 20px; cursor: zoom-out;
   }
   .lightbox.open { display: flex; }
-  .lightbox img { max-width: 96vw; max-height: 92vh; border-radius: 10px; box-shadow: 0 20px 60px rgba(0,0,0,.5); }
+  .lightbox img {
+    max-width: 96vw; max-height: 92vh;
+    width: auto; height: auto;
+    border-radius: 10px; box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  }
+  /* לא להגדיל תמונה מעבר לרזולוציה האמיתית שלה — מונע טשטוש */
+  .lightbox img { max-width: min(96vw, 3200px); }
   .lightbox .lb-close {
     position: absolute; top: 18px; left: 22px; color: #FFF; font-size: 34px;
     line-height: 1; cursor: pointer; background: none; border: none; font-family: sans-serif;
@@ -319,12 +325,12 @@
     <h2 class="ac-title">קהילת בני הישיבות אבני חן</h2>
     <div class="ac-rule"></div>
     <p>קהילת בני הישיבות אבני חן היא קהילה ישיבתית ואיכותית שהוקמה לפני יותר מ-5 שנים, ובשנתיים האחרונות תופסת תאוצה — כשעוד ועוד משפחות קונות דירות באזור הקהילה.</p>
-    <p>הקהילה מונה כיום כ-40 משפחות מבני הציבור הליטאי, עם בוגרים ממגוון הישיבות הליטאיות — כגון <span class="yesh">חברון, קול תורה, תפרח, קובנה, גרודנא באר יעקב, פוניבז', נוייברט, וולפסון, נחלת הלווים ומיר ברכפלד</span>, ועוד ועוד. זוהי קהילה צעירה ותוססת, עם ממוצע גילאים שבין 23 ל-37.</p>
+    <p>הקהילה מונה כיום כ-40 משפחות מבני הציבור הליטאי, עם בוגרים ממגוון הישיבות הליטאיות — כגון <span class="yesh">חברון, קול תורה, תפרח, קובנה, גרודנא באר יעקב, פוניבז', נוייברט, וולפסון ונחלת הלווים</span>, ועוד ועוד. זוהי קהילה צעירה ותוססת, עם ממוצע גילאים שבין 23 ל-37.</p>
     <p>הקהילה מתבססת באזור העליון של שכונת אבני חן (מודגש במפה), כשבאזור הקהילה יש כמות גבוהה של ציבור חרדי מבני עדות המזרח, שמהווים מעטפת לחיי הקהילה שלנו.</p>
     <p>הקהילה מתאפיינת בייחודיות נדירה: מחד, נהנים בני הקהילה ממעטפת מושלמת הכוללת את כל הצרכים של משפחה חרדית; ומאידך, החיים בה נוחים ורגועים ונעדרים ממגרעות המגורים בערים הגדולות שבמרכז.</p>
 
     <figure class="ac-map">
-      <img loading="lazy" decoding="async" src="map-avnei-chen.jpg" alt="מפת שכונת אבני חן בחריש — ריכוזי המגורים החרדיים, בתי הכנסת והמוסדות">
+      <img loading="lazy" decoding="async" src="map-avnei-chen.jpg" data-full="map-avnei-chen-full.jpg" alt="מפת שכונת אבני חן בחריש — ריכוזי המגורים החרדיים, בתי הכנסת והמוסדות">
       <figcaption>
         <p class="map-title">הנוכחות החרדית בשכונה <span class="map-hint">לחצו על המפה להגדלה</span></p>
         <ul class="map-legend">
@@ -565,7 +571,7 @@
   var lbImg = lb.querySelector('img');
   document.querySelectorAll('.c-block img, .ac-map img').forEach(function(im) {
     im.addEventListener('click', function() {
-      lbImg.src = im.src; lbImg.alt = im.alt || ''; lb.classList.add('open');
+      lbImg.src = im.getAttribute('data-full') || im.src; lbImg.alt = im.alt || ''; lb.classList.add('open');
     });
   });
   function close() { lb.classList.remove('open'); lbImg.removeAttribute('src'); }
