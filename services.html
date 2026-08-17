@@ -154,38 +154,6 @@
   }
   .story p:last-of-type { margin-bottom: 0; }
   .story strong { color: var(--sapphire); font-weight: 700; }
-  .sub-h {
-    font-family: 'Suez One', serif; font-weight: 400;
-    font-size: 21px; color: var(--sapphire);
-    margin: 30px 0 12px; padding-bottom: 8px;
-    border-bottom: 2px solid #EFE6D0;
-    display: flex; align-items: center; gap: 10px;
-  }
-  .sub-h::before {
-    content: ""; width: 8px; height: 8px; border-radius: 50%;
-    background: var(--gold); flex-shrink: 0;
-  }
-  /* מבט קדימה — בתכנון */
-  .lookahead {
-    position: relative; margin-top: 22px;
-    background: var(--sapphire); color: #DCE6F0;
-    border-radius: 14px; padding: 22px 24px 22px; overflow: hidden;
-  }
-  .lookahead::after {
-    content: ""; position: absolute; bottom: -70px; left: -40px;
-    width: 170px; height: 170px; border: 1px solid rgba(217,185,106,.35);
-    transform: rotate(45deg); pointer-events: none;
-  }
-  .la-tag {
-    display: inline-block; background: var(--gold); color: #FFF;
-    font-size: 12.5px; font-weight: 700; letter-spacing: .04em;
-    padding: 5px 14px; border-radius: 999px; margin-bottom: 12px;
-  }
-  .lookahead p {
-    color: #D6E1EC; font-size: 15.5px; line-height: 1.85; margin: 0;
-    text-align: start; position: relative; z-index: 1;
-  }
-  .lookahead strong { color: var(--gold-soft); font-weight: 700; }
 
   /* ── כותרת המדריך ── */
   .dir-head { text-align: center; max-width: 640px; margin: 46px auto 0; padding: 0 22px; }
@@ -304,7 +272,6 @@
     /* טקסט ההיסטוריה — עמודה ברוחב נוח לקריאה */
     .acc-inner .story { max-width: 760px; }
     .story p { font-size: 17.5px; line-height: 2; }
-    .sub-h { font-size: 23px; }
 
     /* הרשימות — שני טורים מאוזנים */
     .plain-list {
@@ -386,19 +353,6 @@
     <p>נקודת המפנה הגיעה לפני כחמש שנים: מאות זוגות צעירים רכשו דירות, חלקם במסגרת "מחיר למשתכן". בשנתיים האחרונות, עם ירידת מחירי הדיור, החלה נהירה של משפחות בני תורה מכל הארץ — שגילו עיר חדשה, נקייה ומטופחת, עם קהילות חמות ומחירים שווים לכל נפש.</p>
 
     <p>גם הנהגת העיר השתנתה, ומאז הוקצו למעלה מ-15 הקצאות לבתי כנסת ולמוסדות חרדיים. חריש עדיין אינה עיר חרדית — אבל היא כבר בית למשפחות בני תורה. כיום פועלות בה קהילות ליטאיות מבוגרי הישיבות בכמה שכונות ברחבי העיר.</p>
-
-    <h3 class="sub-h">תחבורה ונגישות</h3>
-    <p>היתרון התחבורתי המרכזי של חריש הוא הצמידות לכביש 6, שמאפשרת יציאה מהירה לכל אזורי המרכז — כ-42 דקות לבני ברק. בתוך העיר פועלים קווי אוטובוס עירוניים לצד קווים בין-עירוניים, ומערך התחבורה הציבורית מתחזק בשנים האחרונות ב"פעימות תגבור": הוספת נסיעות, הארכת שעות הפעילות, ותכנון קווים ישירים נוספים למרכז ולנתניה.</p>
-
-    <div class="lookahead">
-      <span class="la-tag">מבט קדימה · בבנייה</span>
-      <p>בימים אלה נסלל <strong>כביש חדש</strong> שיקצר את הנסיעה למרכז הארץ בכמה דקות, וסיום העבודות צפוי בתוך חודשים ספורים. בתכנון העתידי אמור הכביש לשמש גם כיציאה ישירה לכביש 6.</p>
-    </div>
-
-    <div class="lookahead">
-      <span class="la-tag">מבט קדימה · בתכנון</span>
-      <p>כחלק מהפיכת חריש למרכז עירוני גדול, מקודמת הקמת <strong>תחנת רכבת</strong> לעיר במסגרת "מסילת מנשה" — קו רכבת חדש לאורך כביש 6. לפי החלופה המובילה, התחנה תוקם ממערב לכביש 6 ותחובר לעיר בגשר עילי, בצמוד למסוף תחבורה ציבורית. התוכנית נמצאת בשלבי אישור ותכנון — מועד ביצוע טרם נקבע.</p>
-    </div>
           </div>
         </div>
       </div>

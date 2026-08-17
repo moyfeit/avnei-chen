@@ -479,6 +479,54 @@
     text-align: center;
     margin-top: 8px;
   }
+
+  /* ---------- תחבורה ונגישות ---------- */
+  .transport { margin-top: 36px; }
+  .transport .sub-h {
+    font-size: 21px;
+    font-weight: 400;
+    margin: 0 0 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #EFE6D0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .transport .sub-h::before {
+    content: "";
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    background: var(--gold);
+    flex-shrink: 0;
+  }
+  /* גובר על היישור-למרכז של .neigh p */
+  .neigh .transport > p {
+    text-align: start;
+    font-size: 16.5px;
+    line-height: 1.85;
+    margin: 0;
+  }
+  .lookahead {
+    margin-top: 24px;
+    border-inline-start: 2px solid var(--gold-soft);
+    padding-inline-start: 18px;
+  }
+  .la-tag {
+    display: block;
+    font-size: 12.5px;
+    font-weight: 700;
+    letter-spacing: .08em;
+    color: var(--gold);
+    margin-bottom: 5px;
+  }
+  .neigh .lookahead p {
+    color: #4A5763;
+    font-size: 15.5px;
+    line-height: 1.85;
+    margin: 0;
+    text-align: start;
+  }
+  .lookahead strong { color: var(--sapphire); font-weight: 700; }
   /* ---------- מה מסביב ---------- */
   .nearby-grid {
     display: grid;
@@ -697,6 +745,9 @@
     /* גלריות: רשת במקום גלילה אופקית */
     .neigh { max-width: 1000px; }
     .neigh p { font-size: 18.5px; line-height: 1.8; margin-bottom: 26px; }
+    .transport .sub-h { font-size: 23px; }
+    .neigh .transport > p { font-size: 17.5px; }
+    .neigh .lookahead p { font-size: 16.5px; }
     .photo-strip {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -846,7 +897,7 @@
       <p>בחריש חמש שכונות — אבני חן, החורש, מעוף, בצוותא והפרחים — ומתגוררים בה כ־42 אלף תושבים.</p>
       <p>שטח השיפוט של חריש הוא כ־8,900 דונם — כולל הרחבות שכבר אושרו ובנייתן טרם הושלמה. לשם השוואה, שטח השיפוט של בני ברק הוא 7,300 דונם, ושל אלעד 3,500 דונם.</p>
       <p>חריש שוכנת כ־15 ק"מ מהים, באזור הררי — ולכן האוויר בה טוב יותר מזה שבמישור החוף, בערך כמו באלעד, רק מעט קריר יותר משום שהיא עיר צפונית יותר.</p>
-      <p>העיר יושבת על כביש 6, ובמרחק של כמה דקות נסיעה מפרדס חנה.</p>
+      <p>העיר נמצאת במרחק של כמה דקות נסיעה מפרדס חנה.</p>
     </div>
   </div>
 </section>
@@ -954,6 +1005,21 @@
           <img loading="lazy" decoding="async" src="img-20.jpg" alt="מדרכה טיפוסית בשכונת אבני חן">
           <figcaption>מדרכה נפוצה בשכונה</figcaption>
         </figure>
+      </div>
+
+      <div class="transport">
+        <h3 class="sub-h">תחבורה ונגישות</h3>
+        <p>היתרון התחבורתי המרכזי של חריש הוא הצמידות לכביש 6, שמאפשרת יציאה מהירה לכל אזורי המרכז. בתוך העיר פועלים קווי אוטובוס עירוניים לצד קווים בין-עירוניים, ומערך התחבורה הציבורית מתחזק בשנים האחרונות ב"פעימות תגבור": הוספת נסיעות, הארכת שעות הפעילות, ותכנון קווים ישירים נוספים למרכז ולנתניה.</p>
+
+        <div class="lookahead">
+          <span class="la-tag">מבט קדימה · בבנייה</span>
+          <p>בימים אלה נסלל <strong>כביש חדש</strong> שיקצר את הנסיעה למרכז הארץ בכמה דקות, וסיום העבודות צפוי בתוך חודשים ספורים. בתכנון העתידי אמור הכביש לשמש גם כיציאה ישירה לכביש 6.</p>
+        </div>
+
+        <div class="lookahead">
+          <span class="la-tag">מבט קדימה · בתכנון</span>
+          <p>כחלק מהפיכת חריש למרכז עירוני גדול, מקודמת הקמת <strong>תחנת רכבת</strong> לעיר במסגרת "מסילת מנשה" — קו רכבת חדש לאורך כביש 6. לפי החלופה המובילה, התחנה תוקם ממערב לכביש 6 ותחובר לעיר בגשר עילי, בצמוד למסוף תחבורה ציבורית. התוכנית נמצאת בשלבי אישור ותכנון — מועד ביצוע טרם נקבע.</p>
+        </div>
       </div>
 
     </div>
