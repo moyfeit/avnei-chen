@@ -480,6 +480,76 @@
     margin-top: 8px;
   }
 
+  /* ---------- השוואת שטח שיפוט ---------- */
+  .area-compare {
+    max-width: 620px;
+    margin: 30px auto 0;
+    background: #FFF;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 24px 24px 20px;
+  }
+  .area-compare h3 {
+    font-size: 19px;
+    font-weight: 400;
+    text-align: center;
+    margin-bottom: 22px;
+  }
+  .ac-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .ac-row:last-of-type { margin-bottom: 0; }
+  .ac-name {
+    width: 66px;
+    flex-shrink: 0;
+    font-size: 14.5px;
+    color: #5A6774;
+  }
+  .ac-track {
+    flex: 1;
+    height: 26px;
+    background: #EFEADC;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+  .ac-fill {
+    display: block;
+    height: 100%;
+    width: 0;
+    background: #9DAFC1;
+    transition: width 1.1s cubic-bezier(.25,.9,.35,1);
+  }
+  .area-compare.visible .ac-fill { width: var(--w); }
+  .area-compare .ac-row:nth-of-type(2) .ac-fill { transition-delay: .1s; }
+  .area-compare .ac-row:nth-of-type(3) .ac-fill { transition-delay: .2s; }
+  .ac-val {
+    width: 62px;
+    flex-shrink: 0;
+    font-size: 14.5px;
+    color: #5A6774;
+    text-align: left;
+    direction: ltr;
+  }
+  .ac-row.main .ac-name,
+  .ac-row.main .ac-val { color: var(--sapphire); font-weight: 700; }
+  .ac-row.main .ac-fill { background: var(--gold); }
+  .neigh .area-compare .ac-note {
+    font-size: 12.5px;
+    color: #8A7B54;
+    text-align: center;
+    margin: 20px 0 0;
+    line-height: 1.6;
+  }
+  @media (max-width: 420px) {
+    .area-compare { padding: 20px 16px 16px; }
+    .ac-name { width: 56px; font-size: 13.5px; }
+    .ac-val { width: 52px; font-size: 13.5px; }
+    .ac-row { gap: 9px; }
+  }
+
   /* ---------- תחבורה ונגישות ---------- */
   .transport { margin-top: 46px; }
   /* גובר על היישור-למרכז של .neigh p */
@@ -877,7 +947,25 @@
     </div>
     <div class="neigh">
       <p>בחריש חמש שכונות — אבני חן, החורש, מעוף, בצוותא והפרחים — ומתגוררים בה כ־42 אלף תושבים.</p>
-      <p>שטח השיפוט של חריש הוא כ־8,900 דונם — כולל הרחבות שכבר אושרו ובנייתן טרם הושלמה. לשם השוואה, שטח השיפוט של בני ברק הוא 7,300 דונם, ושל אלעד 3,500 דונם.</p>
+      <div class="area-compare">
+        <h3>שטח שיפוט</h3>
+        <div class="ac-row main">
+          <span class="ac-name">חריש</span>
+          <span class="ac-track"><span class="ac-fill" style="--w: 100%"></span></span>
+          <span class="ac-val">8,900</span>
+        </div>
+        <div class="ac-row">
+          <span class="ac-name">בני ברק</span>
+          <span class="ac-track"><span class="ac-fill" style="--w: 82%"></span></span>
+          <span class="ac-val">7,300</span>
+        </div>
+        <div class="ac-row">
+          <span class="ac-name">אלעד</span>
+          <span class="ac-track"><span class="ac-fill" style="--w: 39%"></span></span>
+          <span class="ac-val">3,500</span>
+        </div>
+        <p class="ac-note">בדונם · נתוני חריש כוללים הרחבות שאושרו ובנייתן טרם הושלמה</p>
+      </div>
       <p>חריש שוכנת כ־15 ק"מ מהים, באזור הררי — ולכן האוויר בה טוב יותר מזה שבמישור החוף, בערך כמו באלעד, רק מעט קריר יותר משום שהיא עיר צפונית יותר.</p>
       <p>העיר נמצאת במרחק של כמה דקות נסיעה מפרדס חנה.</p>
     </div>
@@ -1122,7 +1210,7 @@
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   // מוסיף reveal לאלמנטים המרכזיים
-  var targets = document.querySelectorAll('.sec-head, .gem-card, .price-box, .nearby-card, .shiur-block, .life-item, .contact-row, .map-figure');
+  var targets = document.querySelectorAll('.sec-head, .gem-card, .price-box, .nearby-card, .shiur-block, .life-item, .contact-row, .map-figure, .area-compare');
   targets.forEach(function(el) { el.classList.add('reveal'); });
 
   var revealEls = document.querySelectorAll('.reveal');
