@@ -436,11 +436,14 @@
   .neigh { max-width: 700px; margin: 0 auto; }
   .neigh p {
     font-size: 17.5px;
-    line-height: 1.75;
+    line-height: 1.85;
     color: #33404D;
-    text-align: center;
+    text-align: justify;
+    text-justify: inter-word;
+    text-wrap: pretty;
     margin: 0 0 18px;
   }
+  .neigh p:last-child { text-align: right; }
   .neigh img {
     width: 100%;
     height: auto;
@@ -552,7 +555,6 @@
 
   /* ---------- תחבורה ונגישות ---------- */
   .transport { margin-top: 46px; }
-  /* גובר על היישור-למרכז של .neigh p */
   .neigh .transport > p {
     text-align: start;
     font-size: 16.5px;
@@ -1007,7 +1009,7 @@
         <p class="ac-note">נתוני חריש כוללים הרחבות שאושרו ובנייתן טרם הושלמה</p>
       </div>
       <p>חריש שוכנת כ־15 ק"מ מהים, באזור הררי — ולכן האוויר בה טוב יותר מזה שבמישור החוף, בערך כמו באלעד, רק מעט קריר יותר משום שהיא עיר צפונית יותר.</p>
-      <p>העיר נמצאת במרחק של כמה דקות נסיעה מפרדס חנה.</p>
+      <p>העיר נמצאת במרחק של<br>כמה דקות נסיעה מפרדס חנה,<br>וכ־20 דקות מחדרה.</p>
     </div>
   </div>
 </section>
