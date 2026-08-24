@@ -470,6 +470,104 @@
     </div>
   </div>
 </section>
+<style>
+  .shul-wrap { max-width: 700px; margin: 0 auto 30px; padding: 0 22px; }
+  .shul-card {
+    background: #FFF;
+    border: 1px solid #EDE2CB;
+    border-radius: 16px;
+    padding: 30px 28px 26px;
+    text-align: center;
+    box-shadow: 0 12px 32px rgba(22,50,79,.07);
+  }
+  /* המקור הוא צילום מסך עם שוליים לבנים בתחתית — נחתכים כאן */
+  .shul-logo {
+    width: 128px;
+    aspect-ratio: 1206 / 932;
+    object-fit: cover;
+    object-position: top;
+    display: block; margin: 0 auto 14px;
+  }
+  .shul-title {
+    font-family: 'Suez One', serif; font-weight: 400;
+    font-size: 24px; color: var(--sapphire); margin: 0 0 12px;
+  }
+  .shul-rule {
+    height: 3px; width: 64px; border-radius: 2px; margin: 0 auto 18px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+  }
+  .shul-card p { color: #3A4653; font-size: 16.5px; line-height: 1.9; margin: 0 0 12px; }
+  .shul-card p:last-child { margin-bottom: 0; }
+  .shul-soon {
+    background: #FBF4E4;
+    border: 1px solid #ECE0C4;
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-top: 18px;
+    color: var(--sapphire);
+    font-weight: 500;
+  }
+  .shul-soon .soon-tag {
+    display: block;
+    font-size: 12px; font-weight: 700; letter-spacing: .08em;
+    color: var(--gold); margin-bottom: 5px;
+  }
+  .shul-give {
+    margin-top: 22px;
+    padding-top: 20px;
+    border-top: 1px solid #EDE2CB;
+  }
+  .shul-give p { margin-bottom: 0; }
+  .donate-btn {
+    display: inline-flex; align-items: center; gap: 9px;
+    margin-top: 16px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+    color: #FFF; text-decoration: none;
+    font-weight: 700; font-size: 16.5px;
+    padding: 12px 30px; border-radius: 40px;
+    box-shadow: 0 6px 18px rgba(184,137,46,.35);
+    transition: transform .15s, box-shadow .15s;
+  }
+  .donate-btn:hover, .donate-btn:focus-visible {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 24px rgba(184,137,46,.42);
+  }
+  .donate-btn:focus-visible { outline: 3px solid var(--sapphire); outline-offset: 3px; }
+  @media (min-width: 900px) {
+    .shul-wrap { max-width: 860px; }
+    .shul-card { padding: 40px 44px 34px; }
+    .shul-logo { width: 148px; }
+    .shul-title { font-size: 28px; }
+    .shul-card p { font-size: 17.5px; }
+  }
+  @media (max-width: 520px) {
+    .shul-card { padding: 24px 18px 22px; }
+    .shul-logo { width: 104px; }
+    .shul-title { font-size: 21px; }
+  }
+</style>
+
+<section class="shul-wrap">
+  <div class="shul-card">
+    <img class="shul-logo" loading="lazy" decoding="async" src="logo-shul.jpg" alt="לוגו בית הכנסת המרכזי אבני חן חריש">
+    <h2 class="shul-title">בית הכנסת המרכזי אבני חן</h2>
+    <div class="shul-rule"></div>
+    <p>בית הכנסת של הקהילה פעיל כיום בשבתות, ומתקיימים בו שיעורים כסדרם במהלך השבוע.</p>
+    <p class="shul-soon">
+      <span class="soon-tag">מבט קדימה</span>
+      בית הכנסת נמצא בתהליך מתקדם של קבלת הקצאה למבנה קבע בגודל של כמה מאות מ"ר.
+    </p>
+
+    <div class="shul-give">
+      <p>לבית הכנסת עמותה רשומה ופעילה, ודף התרמה פעיל בנדרים פלוס.</p>
+      <a class="donate-btn" href="https://www.matara.pro/nedarimplus/online/?mosad=7012204" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true"><path d="M12 21s-7.5-4.7-9.6-9A5.3 5.3 0 0 1 12 6.6 5.3 5.3 0 0 1 21.6 12c-2.1 4.3-9.6 9-9.6 9z"/></svg>
+        <span>לתרומה בנדרים פלוס</span>
+      </a>
+    </div>
+  </div>
+</section>
+
 
 
 <style>
@@ -585,7 +683,7 @@
 (function() {
   var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  var targets = document.querySelectorAll('.diary, .ac-card, .c-block, .contact h2, .contact .lead, .contact-row, main h1, main .notice, .back');
+  var targets = document.querySelectorAll('.diary, .ac-card, .shul-card, .c-block, .contact h2, .contact .lead, .contact-row, main h1, main .notice, .back');
   targets.forEach(function(el) { el.classList.add('reveal'); });
 
   var revealEls = document.querySelectorAll('.reveal');
