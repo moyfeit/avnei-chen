@@ -488,6 +488,20 @@
     object-position: top;
     display: block; margin: 0 auto 14px;
   }
+  /* הווידאו: היחס נשמר בקונטיינר כדי שלא תהיה קפיצת פריסה לפני הטעינה */
+  .shul-video {
+    margin: 0 0 20px;
+    border-radius: 12px;
+    overflow: hidden;
+    background: #F0EBDD;
+    aspect-ratio: 16 / 9;
+  }
+  .shul-vid {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
   .shul-title {
     font-family: 'Suez One', serif; font-weight: 400;
     font-size: 24px; color: var(--sapphire); margin: 0 0 12px;
@@ -531,6 +545,11 @@
     <img class="shul-logo" loading="lazy" decoding="async" src="logo-shul.jpg" alt="לוגו בית הכנסת המרכזי אבני חן חריש">
     <h2 class="shul-title">בית הכנסת המרכזי אבני חן</h2>
     <div class="shul-rule"></div>
+    <div class="shul-video">
+      <video class="shul-vid" muted loop playsinline preload="none"
+             data-src="shul-video.mp4"
+             aria-label="סרטון קצר מבית הכנסת של הקהילה"></video>
+    </div>
     <p>בית הכנסת של הקהילה פעיל כיום בשבתות, ומתקיימים בו שיעורים כסדרם במהלך השבוע.</p>
     <p>לבית הכנסת עמותה רשומה ופעילה.</p>
     <p class="shul-soon">
@@ -717,6 +736,33 @@
       });
     }
   });
+})();
+</script>
+
+<script>
+// הווידאו בכרטיס בית הכנסת: נטען רק כשמגיעים אליו, מתנגן בהשתקה, ונעצר ביציאה מהמסך
+(function() {
+  var v = document.querySelector('.shul-vid');
+  if (!v) return;
+
+  function load() { if (!v.src) v.src = v.getAttribute('data-src'); }
+  function fallback() { load(); v.setAttribute('controls', ''); }
+
+  var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (reduced || !('IntersectionObserver' in window)) { fallback(); return; }
+
+  var io = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        load();
+        var p = v.play();
+        if (p && p.catch) p.catch(function() { v.setAttribute('controls', ''); });
+      } else if (!v.paused) {
+        v.pause();
+      }
+    });
+  }, { threshold: 0.35 });
+  io.observe(v);
 })();
 </script>
 </body>
