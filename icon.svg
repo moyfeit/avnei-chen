@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="אבני חן">
+  <rect width="64" height="64" fill="#16324F"/>
+  <g transform="translate(32 33.5) scale(1.06) translate(-32 -33)">
+    <path d="M20 12 H44 L38 26 H26 Z" fill="#EBD7A2"/>
+    <path d="M20 12 L26 26 L8 26 Z"   fill="#D9BC72"/>
+    <path d="M44 12 L38 26 L56 26 Z"  fill="#C9A455"/>
+    <path d="M8 26 H26 L32 54 Z"      fill="#C4A054"/>
+    <path d="M26 26 H38 L32 54 Z"     fill="#E3CB8C"/>
+    <path d="M38 26 H56 L32 54 Z"     fill="#B8892E"/>
+    <path d="M20 12 H44 L56 26 L32 54 L8 26 Z" fill="none"
+          stroke="#8A6A20" stroke-width="2" stroke-linejoin="round"/>
+    <path d="M8 26 H56 M20 12 L26 26 L32 54 M44 12 L38 26 L32 54 M26 26 H38"
+          stroke="#8A6A20" stroke-width="1.1" opacity="0.45" fill="none"/>
+  </g>
+</svg>
