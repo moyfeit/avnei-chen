@@ -140,6 +140,43 @@
     margin: 0 0 12px; text-align: start;
   }
   .news-item p:last-child { margin-bottom: 0; }
+  /* תמונה ראשית + גלריה — אותה תבנית כמו photo-strip בדף הבית */
+  .news-hero { margin: 0 0 18px; }
+  .news-hero img { margin: 0; }
+  .news-hero figcaption,
+  .news-gallery figcaption {
+    font-size: 13.5px; color: #5A6774; text-align: center;
+    margin-top: 8px; line-height: 1.55;
+  }
+  .news-gallery {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    margin: 22px 0 0;
+    padding-bottom: 8px;
+    scrollbar-width: thin;
+  }
+  .news-gallery figure { flex: 0 0 86%; margin: 0; scroll-snap-align: center; }
+  .news-gallery img { margin: 0; }
+  @media (min-width: 760px) {
+    .news-gallery {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 18px;
+      overflow: visible;
+      scroll-snap-type: none;
+      padding: 0;
+    }
+    .news-gallery figure { flex: none; }
+  }
+  .news-lead {
+    font-weight: 500;
+    color: var(--sapphire) !important;
+    border-inline-start: 3px solid var(--gold-soft);
+    padding-inline-start: 14px;
+  }
   .news-item img {
     width: 100%; height: auto;
     border-radius: 12px; display: block;
@@ -229,11 +266,44 @@
       <img loading="lazy" decoding="async" src="שם-הקובץ.jpg" alt="תיאור התמונה">
   -->
 
-  <div class="news-empty">
-    <span class="gem"></span>
-    <h2>העמוד נפתח זה עתה</h2>
-    <p>מכאן ואילך נעדכן כאן על שיעורים, אירועים והתפתחויות בקהילה.</p>
-  </div>
+  <article class="news-item">
+    <time class="news-date" datetime="2026-09-17">ו' בתשרי תשפ״ז</time>
+    <h2>כנס חיזוק עשי"ת והשקת קופה של צדקה אבני חן</h2>
+    <figure class="news-hero">
+      <img loading="lazy" decoding="async" src="kenes-05.jpg" alt="נושא דברים מאחורי הדוכן בכנס, שולחן הכבוד והקהל באולם">
+      <figcaption>דברי חיזוק לקראת הימים הנוראים</figcaption>
+    </figure>
+    <p class="news-lead">מעמד חיזוק והתעוררות והשקת קופת הצדקה בקהילה הליטאית אבני חן בחריש, בהשתתפות רבנים ובראשם הגאון הגדול רבי יצחק קולדצקי שליט״א וכן רב העיר הרב זיגדון שליט"א.</p>
+    <p>התפתחות דרמטית בקהילה הליטאית בשכונת אבני חן בחריש.</p>
+    <p>מאות השתתפו במעמד חיזוק והתעוררות לקראת יום הכיפורים והשקת קופת הצדקה ׳אבני חן׳ ומערך התמיכה הקהילתי בשכונה.</p>
+
+    <div class="news-gallery">
+      <figure>
+        <img loading="lazy" decoding="async" src="kenes-04.jpg" alt="שולחן הכבוד בכנס, קופת הצדקה על השולחן ולצידה שלט הכנס">
+        <figcaption>השקת קופת הצדקה ׳אבני חן׳ על שולחן הכבוד</figcaption>
+      </figure>
+      <figure>
+        <img loading="lazy" decoding="async" src="kenes-03.jpg" alt="רב מבוגר מכניס תרומה לקופת הצדקה">
+        <figcaption>הנתינה הראשונה לקופה</figcaption>
+      </figure>
+      <figure>
+        <img loading="lazy" decoding="async" src="kenes-02.jpg" alt="נתינת שטר לקופת הצדקה בעמידה ליד השולחן">
+        <figcaption>מעמד הנתינה לקופה</figcaption>
+      </figure>
+      <figure>
+        <img loading="lazy" decoding="async" src="kenes-08.jpg" alt="רב העיר הרב זיגדון שליט״א ומשתתפים נוספים סביב קופת הצדקה">
+        <figcaption>רב העיר הרב זיגדון שליט״א ברגעי ההשקה</figcaption>
+      </figure>
+      <figure>
+        <img loading="lazy" decoding="async" src="kenes-06.jpg" alt="מבט מאחורי האולם על הקהל היושב מול שולחן הכבוד">
+        <figcaption>האולם במהלך המעמד</figcaption>
+      </figure>
+      <figure>
+        <img loading="lazy" decoding="async" src="kenes-07.jpg" alt="משתתפים יושבים ומאזינים לדברי החיזוק">
+        <figcaption>מן הקהל</figcaption>
+      </figure>
+    </div>
+  </article>
 
 </section>
 
