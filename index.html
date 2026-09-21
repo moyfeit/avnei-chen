@@ -67,7 +67,10 @@
     background: var(--sapphire);
     padding: 0 clamp(6px, 2vw, 20px);
     display: flex;
-    justify-content: center;
+    justify-content: safe center;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
     gap: 0;
     position: sticky;
     top: 0;
@@ -98,6 +101,7 @@
   .topnav a:hover { color: #FFF; }
   .topnav a:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: -3px; }
   .topnav a.active { color: #FFF; box-shadow: inset 0 -3px 0 var(--gold-soft); }
+  .topnav::-webkit-scrollbar { display: none; }
 
   html { scroll-behavior: smooth; }
   @media (prefers-reduced-motion: reduce) {
@@ -919,7 +923,7 @@
   <a href="/" class="active">ראשי</a>
   <a href="/community">הקהילה שלנו</a>
   <a href="/services">חריש החרדית</a>
-  <a href="/news">חדשות הקהילה</a>
+  <a href="/news">חדשות</a>
 </nav>
 
 <p class="mission-note">האתר נבנה על ידי בני הקהילה, ללא מטרת רווח.</p>

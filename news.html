@@ -44,7 +44,10 @@
     background: var(--sapphire);
     padding: 0 clamp(6px, 2vw, 20px);
     display: flex;
-    justify-content: center;
+    justify-content: safe center;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
     gap: 0;
     position: sticky;
     top: 0;
@@ -76,6 +79,7 @@
   .topbar a:hover { color: #FFF; }
   .topbar a:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: -3px; }
   .topbar a.active { color: #FFF; box-shadow: inset 0 -3px 0 var(--gold-soft); }
+  .topbar::-webkit-scrollbar { display: none; }
   .topbar.scrolled {
     background: rgba(251, 249, 243, 0.82);
     -webkit-backdrop-filter: blur(10px);
@@ -150,27 +154,27 @@
   }
   .news-gallery {
     display: flex;
-    gap: 12px;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    -webkit-overflow-scrolling: touch;
-    margin: 22px 0 0;
-    padding-bottom: 8px;
-    scrollbar-width: thin;
+    flex-direction: column;
+    gap: 24px;
+    margin: 24px 0 0;
   }
-  .news-gallery figure { flex: 0 0 86%; margin: 0; scroll-snap-align: center; }
+  .news-gallery figure { margin: 0; }
   .news-gallery img { margin: 0; }
-  @media (min-width: 760px) {
-    .news-gallery {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 18px;
-      overflow: visible;
-      scroll-snap-type: none;
-      padding: 0;
-    }
-    .news-gallery figure { flex: none; }
+  /* פתיחת הכתבה — אותו מנגנון כמו היומן בדף הקהילה */
+  .news-more { max-height: 0; overflow: hidden; transition: max-height .45s ease; }
+  .news-toggle {
+    display: flex; width: fit-content; align-items: center; gap: 8px;
+    margin: 18px auto 0; padding: 10px 22px;
+    background: none; border: 1.5px solid var(--gold); border-radius: 999px;
+    color: var(--gold); font-family: inherit; font-size: 15px; font-weight: 700;
+    cursor: pointer; transition: background .2s ease, color .2s ease;
   }
+  .news-toggle:hover { background: var(--gold); color: #FFF; }
+  .news-toggle:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+  .nt-chev { display: flex; transition: transform .3s ease; }
+  .nt-chev svg { width: 17px; height: 17px; }
+  .news-toggle[aria-expanded="true"] .nt-chev { transform: rotate(180deg); }
+
   .news-lead {
     font-weight: 500;
     color: var(--sapphire) !important;
@@ -236,7 +240,7 @@
   <a href="/">ראשי</a>
   <a href="/community">הקהילה שלנו</a>
   <a href="/services">חריש החרדית</a>
-  <a href="/news" class="active">חדשות הקהילה</a>
+  <a href="/news" class="active">חדשות</a>
 </nav>
 
 <p class="mission-note">האתר נבנה על ידי בני הקהילה, ללא מטרת רווח.</p>
@@ -270,39 +274,46 @@
     <time class="news-date" datetime="2026-09-17">ו' בתשרי תשפ״ז</time>
     <h2>כנס חיזוק עשי"ת והשקת קופה של צדקה אבני חן</h2>
     <figure class="news-hero">
-      <img loading="lazy" decoding="async" src="kenes-05.jpg" alt="נושא דברים מאחורי הדוכן בכנס, שולחן הכבוד והקהל באולם">
-      <figcaption>דברי חיזוק לקראת הימים הנוראים</figcaption>
+      <img loading="lazy" decoding="async" width="1600" height="1066" src="kenes-04.jpg" alt="הגאון הגדול רבי יצחק קולדצקי שליט״א תורם לקופת הצדקה ׳אבני חן׳ על שולחן הכבוד">
+      <figcaption>הגאון הגדול רבי יצחק קולדצקי שליט״א בהשקת קופת הצדקה ׳אבני חן׳</figcaption>
     </figure>
     <p class="news-lead">מעמד חיזוק והתעוררות והשקת קופת הצדקה בקהילה הליטאית אבני חן בחריש, בהשתתפות רבנים ובראשם הגאון הגדול רבי יצחק קולדצקי שליט״א וכן רב העיר הרב זיגדון שליט"א.</p>
+    <div class="news-more" id="news-more-1">
     <p>התפתחות דרמטית בקהילה הליטאית בשכונת אבני חן בחריש.</p>
     <p>מאות השתתפו במעמד חיזוק והתעוררות לקראת יום הכיפורים והשקת קופת הצדקה ׳אבני חן׳ ומערך התמיכה הקהילתי בשכונה.</p>
 
     <div class="news-gallery">
       <figure>
-        <img loading="lazy" decoding="async" src="kenes-04.jpg" alt="שולחן הכבוד בכנס, קופת הצדקה על השולחן ולצידה שלט הכנס">
-        <figcaption>השקת קופת הצדקה ׳אבני חן׳ על שולחן הכבוד</figcaption>
+        <img loading="lazy" decoding="async" width="1600" height="1066" src="kenes-05.jpg" alt="הרב מרון שליט״א נושא דברי חיזוק מאחורי הדוכן, שולחן הכבוד והקהל באולם">
+        <figcaption>הרב מרון שליט״א, רב קהילת ׳בית השם׳ בשכונת החורש, בדברי חיזוק</figcaption>
       </figure>
       <figure>
-        <img loading="lazy" decoding="async" src="kenes-03.jpg" alt="רב מבוגר מכניס תרומה לקופת הצדקה">
-        <figcaption>הנתינה הראשונה לקופה</figcaption>
+        <img loading="lazy" decoding="async" width="1600" height="1066" src="kenes-03.jpg" alt="הרב טייכנר שליט״א מרבני העיר מכניס תרומה לקופת הצדקה">
+        <figcaption>הרב טייכנר שליט״א מרבני העיר בנתינה הראשונה לקופה</figcaption>
       </figure>
       <figure>
-        <img loading="lazy" decoding="async" src="kenes-02.jpg" alt="נתינת שטר לקופת הצדקה בעמידה ליד השולחן">
+        <img loading="lazy" decoding="async" width="1600" height="1066" src="kenes-02.jpg" alt="נתינת שטר לקופת הצדקה בעמידה ליד השולחן">
         <figcaption>מעמד הנתינה לקופה</figcaption>
       </figure>
       <figure>
-        <img loading="lazy" decoding="async" src="kenes-08.jpg" alt="רב העיר הרב זיגדון שליט״א ומשתתפים נוספים סביב קופת הצדקה">
+        <img loading="lazy" decoding="async" width="1600" height="1066" src="kenes-08.jpg" alt="רב העיר הרב זיגדון שליט״א ומשתתפים נוספים סביב קופת הצדקה">
         <figcaption>רב העיר הרב זיגדון שליט״א ברגעי ההשקה</figcaption>
       </figure>
       <figure>
-        <img loading="lazy" decoding="async" src="kenes-06.jpg" alt="מבט מאחורי האולם על הקהל היושב מול שולחן הכבוד">
+        <img loading="lazy" decoding="async" width="1600" height="1066" src="kenes-06.jpg" alt="מבט מאחורי האולם על הקהל היושב מול שולחן הכבוד">
         <figcaption>האולם במהלך המעמד</figcaption>
       </figure>
       <figure>
-        <img loading="lazy" decoding="async" src="kenes-07.jpg" alt="משתתפים יושבים ומאזינים לדברי החיזוק">
+        <img loading="lazy" decoding="async" width="1600" height="1066" src="kenes-07.jpg" alt="משתתפים יושבים ומאזינים לדברי החיזוק">
         <figcaption>מן הקהל</figcaption>
       </figure>
     </div>
+    </div>
+
+    <button class="news-toggle" aria-expanded="false" aria-controls="news-more-1">
+      <span class="nt-label">להמשך הכתבה</span>
+      <span class="nt-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
   </article>
 
 </section>
@@ -345,6 +356,39 @@
     }, { threshold: 0.12 });
     els.forEach(function(el) { io.observe(el); });
   })();
+</script>
+
+<script>
+// פתיחה וסגירה של כתבה — עובד על כל כתבה בדף
+(function() {
+  document.querySelectorAll('.news-toggle').forEach(function(btn) {
+    var panel = document.getElementById(btn.getAttribute('aria-controls'));
+    if (!panel) return;
+    var label = btn.querySelector('.nt-label');
+
+    btn.addEventListener('click', function() {
+      var open = btn.getAttribute('aria-expanded') === 'true';
+      if (open) {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        requestAnimationFrame(function() {
+          requestAnimationFrame(function() { panel.style.maxHeight = '0px'; });
+        });
+        btn.setAttribute('aria-expanded', 'false');
+        label.textContent = 'להמשך הכתבה';
+      } else {
+        panel.style.maxHeight = panel.scrollHeight + 'px';
+        btn.setAttribute('aria-expanded', 'true');
+        label.textContent = 'סגירה';
+        // אחרי האנימציה מסירים את התקרה, כדי שתמונות שנטענות באיחור לא ייחתכו
+        panel.addEventListener('transitionend', function te(e) {
+          if (e.target !== panel || e.propertyName !== 'max-height') return;
+          if (btn.getAttribute('aria-expanded') === 'true') panel.style.maxHeight = 'none';
+          panel.removeEventListener('transitionend', te);
+        });
+      }
+    });
+  });
+})();
 </script>
 </body>
 </html>
