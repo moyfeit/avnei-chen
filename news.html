@@ -42,10 +42,10 @@
   }
   .topbar {
     background: var(--sapphire);
-    padding: 14px clamp(6px, 2vw, 20px);
+    padding: 0 clamp(6px, 2vw, 20px);
     display: flex;
     justify-content: center;
-    gap: clamp(5px, 1.6vw, 12px);
+    gap: 0;
     position: sticky;
     top: 0;
     z-index: 100;
@@ -53,49 +53,39 @@
     transition: background .3s ease, box-shadow .3s ease;
   }
   .topbar a {
-    color: #FFF;
+    position: relative;
+    color: #CBD8E4;
     text-decoration: none;
-    font-size: 16px;
+    font-size: clamp(12.5px, 3.4vw, 15.5px);
     font-weight: 500;
-    transition: color .3s ease;
-  }
-  .topbar a.active {
-    background: var(--gold-soft);
-    border-color: var(--gold-soft);
-    color: var(--sapphire);
-    font-weight: 700;
-  }
-  .topbar a {
     white-space: nowrap;
-    font-size: clamp(11px, 3.2vw, 15.5px);
-    padding: clamp(6px, 1.5vw, 9px) clamp(8px, 2.4vw, 16px);
-    border-radius: 999px;
-    background: rgba(255,255,255,.10);
-    border: 1px solid rgba(255,255,255,.20);
-    transition: background .25s ease, border-color .25s ease, color .25s ease;
+    padding: 15px clamp(10px, 3vw, 22px);
+    transition: color .25s ease, box-shadow .25s ease;
   }
-  .topbar a:hover {
-    background: rgba(255,255,255,.19);
-    border-color: rgba(255,255,255,.36);
+  /* קו מפריד בין פריט לקודמו — inline-start כי הפריסה RTL */
+  .topbar a + a::after {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 17px;
+    background: rgba(217,185,106,.34);
   }
-  .topbar a:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: 2px; }
+  .topbar a:hover { color: #FFF; }
+  .topbar a:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: -3px; }
+  .topbar a.active { color: #FFF; box-shadow: inset 0 -3px 0 var(--gold-soft); }
   .topbar.scrolled {
     background: rgba(251, 249, 243, 0.82);
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 12px rgba(20,40,62,.10);
   }
-  .topbar.scrolled a {
-    color: var(--sapphire);
-    background: rgba(22,50,79,.06);
-    border-color: rgba(22,50,79,.15);
-  }
-  .topbar.scrolled a:hover { background: rgba(22,50,79,.12); }
-  .topbar.scrolled a.active {
-    background: var(--gold-soft);
-    border-color: var(--gold);
-    color: var(--sapphire);
-  }
+  .topbar.scrolled a { color: var(--sapphire); }
+  .topbar.scrolled a:hover { color: var(--gold); }
+  .topbar.scrolled a + a::after { background: rgba(184,137,46,.32); }
+  .topbar.scrolled a.active { color: var(--sapphire); box-shadow: inset 0 -3px 0 var(--gold); }
 
   .mission-note {
     margin: 0;
