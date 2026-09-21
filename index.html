@@ -65,10 +65,10 @@
   * { margin: 0; padding: 0; box-sizing: border-box; }
   .topnav {
     background: var(--sapphire);
-    padding: 13px clamp(8px, 3vw, 24px);
+    padding: 13px clamp(6px, 2vw, 20px);
     display: flex;
     justify-content: center;
-    gap: clamp(8px, 2.6vw, 20px);
+    gap: clamp(5px, 1.6vw, 12px);
     position: sticky;
     top: 0;
     z-index: 100;
@@ -80,8 +80,26 @@
     font-size: 16px;
     font-weight: 500;
   }
-  .topnav a.active { color: var(--gold-soft); }
-  .topnav a { white-space: nowrap; font-size: clamp(11.5px, 3.4vw, 16px); }
+  .topnav a.active {
+    background: var(--gold-soft);
+    border-color: var(--gold-soft);
+    color: var(--sapphire);
+    font-weight: 700;
+  }
+  .topnav a {
+    white-space: nowrap;
+    font-size: clamp(11px, 3.2vw, 15.5px);
+    padding: clamp(6px, 1.5vw, 9px) clamp(8px, 2.4vw, 16px);
+    border-radius: 999px;
+    background: rgba(255,255,255,.10);
+    border: 1px solid rgba(255,255,255,.20);
+    transition: background .25s ease, border-color .25s ease, color .25s ease;
+  }
+  .topnav a:hover {
+    background: rgba(255,255,255,.19);
+    border-color: rgba(255,255,255,.36);
+  }
+  .topnav a:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: 2px; }
 
   html { scroll-behavior: smooth; }
   @media (prefers-reduced-motion: reduce) {
@@ -851,8 +869,17 @@
     backdrop-filter: blur(10px);
     box-shadow: 0 2px 12px rgba(20,40,62,.10);
   }
-  .topnav.scrolled a { color: var(--sapphire); }
-  .topnav.scrolled a.active { color: var(--gold); }
+  .topnav.scrolled a {
+    color: var(--sapphire);
+    background: rgba(22,50,79,.06);
+    border-color: rgba(22,50,79,.15);
+  }
+  .topnav.scrolled a:hover { background: rgba(22,50,79,.12); }
+  .topnav.scrolled a.active {
+    background: var(--gold-soft);
+    border-color: var(--gold);
+    color: var(--sapphire);
+  }
   .topnav { transition: background .3s ease, box-shadow .3s ease; }
   .topnav a { transition: color .3s ease; }
 
