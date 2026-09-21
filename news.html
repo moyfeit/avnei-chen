@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>חדשות הקהילה | אבני חן - קהילת בני הישיבות בחריש</title>
+<link rel="icon" type="image/svg+xml" href="/icon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/icon-96.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/icon-48.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="description" content="עדכונים מקהילת בני הישיבות אבני חן בחריש — שיעורים, אירועים, בנייה ומוסדות.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://bh-harish.co.il/news">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6DS9HEK18W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6DS9HEK18W');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Suez+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sapphire: #16324F;
+    --gold: #B8892E;
+    --gold-soft: #D9B96A;
+    --ivory: #FBF9F3;
+    --line: #ECE4D2;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Heebo', sans-serif;
+    background: var(--ivory);
+    color: #33404D;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .topbar {
+    background: var(--sapphire);
+    padding: 14px 24px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,.18);
+    transition: background .3s ease, box-shadow .3s ease;
+  }
+  .topbar a {
+    color: #FFF;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 500;
+    transition: color .3s ease;
+  }
+  .topbar a.active { color: var(--gold-soft); }
+  .topbar a { white-space: nowrap; }
+  @media (max-width: 560px) {
+    .topbar { gap: 8px 16px; padding: 11px 14px; }
+    .topbar a { font-size: 15px; }
+  }
+  .topbar.scrolled {
+    background: rgba(251, 249, 243, 0.82);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 12px rgba(20,40,62,.10);
+  }
+  .topbar.scrolled a { color: var(--sapphire); }
+  .topbar.scrolled a.active { color: var(--gold); }
+
+  .mission-note {
+    margin: 0;
+    padding: 11px 20px;
+    text-align: center;
+    background: #FBF4E4;
+    border-bottom: 1px solid #ECE0C4;
+    color: #6B6250;
+    font-size: 13.5px;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+  @media (min-width: 900px) { .mission-note { font-size: 14.5px; padding: 13px 24px; } }
+
+  /* ── כותרת הדף ── */
+  main { padding: 42px 22px 10px; }
+  .page-head { text-align: center; max-width: 680px; margin: 0 auto; }
+  .crest { font-size: 32px; color: var(--gold); margin-bottom: 12px; }
+  .page-head h1 {
+    font-family: 'Suez One', serif; font-weight: 400;
+    font-size: clamp(30px, 6vw, 42px); color: var(--sapphire); margin-bottom: 10px;
+  }
+  .gold-rule {
+    width: 70px; height: 3px; margin: 0 auto 18px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .page-head p { font-size: 17px; line-height: 1.8; color: #4A5763; }
+
+  /* ── רשימת העדכונים ── */
+  .news { max-width: 700px; margin: 34px auto 0; padding: 0 22px; }
+  .news-item {
+    background: #FFF;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 24px 26px 22px;
+    box-shadow: 0 10px 30px rgba(22,50,79,.06);
+  }
+  .news-item + .news-item { margin-top: 18px; }
+  .news-date {
+    display: block;
+    font-size: 12.5px; font-weight: 700; letter-spacing: .08em;
+    color: var(--gold); margin-bottom: 8px;
+  }
+  .news-item h2 {
+    font-family: 'Suez One', serif; font-weight: 400;
+    font-size: 22px; color: var(--sapphire);
+    margin: 0 0 12px; padding-bottom: 10px;
+    border-bottom: 2px solid #EFE6D0;
+  }
+  .news-item p {
+    font-size: 16.5px; line-height: 1.9; color: #3A4653;
+    margin: 0 0 12px; text-align: start;
+  }
+  .news-item p:last-child { margin-bottom: 0; }
+  .news-item img {
+    width: 100%; height: auto;
+    border-radius: 12px; display: block;
+    margin: 0 0 16px;
+  }
+  @media (min-width: 900px) {
+    .news { max-width: 800px; }
+    .news-item { padding: 32px 36px 28px; }
+    .news-item h2 { font-size: 25px; }
+    .news-item p { font-size: 17.5px; }
+  }
+
+  /* ── מצב ריק ── */
+  .news-empty {
+    text-align: center;
+    border: 2px dashed var(--gold);
+    border-radius: 16px;
+    padding: 40px 26px;
+    color: #6B6250;
+  }
+  .news-empty .gem {
+    display: block; width: 14px; height: 14px; margin: 0 auto 16px;
+    background: var(--gold); transform: rotate(45deg);
+  }
+  .news-empty h2 {
+    font-family: 'Suez One', serif; font-weight: 400;
+    font-size: 22px; color: var(--sapphire); margin-bottom: 10px;
+  }
+  .news-empty p { font-size: 16px; line-height: 1.8; }
+
+  /* ── יצירת קשר ── */
+  .contact {
+    text-align: center; background: var(--sapphire);
+    padding: 50px 20px 56px; margin-top: 46px;
+  }
+  .contact h2 { color: #FFF; font-family: 'Suez One', serif; font-size: clamp(24px,6vw,32px); margin: 0 0 12px; }
+  .contact .rule {
+    height: 3px; width: 64px; border-radius: 2px; margin: 0 auto 18px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+  }
+  .contact .lead { color: #C9D6E2; font-size: 16px; line-height: 1.7; max-width: 520px; margin: 0 auto; }
+
+  footer {
+    background: var(--sapphire); color: #C9D6E2;
+    text-align: center; padding: 18px; font-size: 14px;
+  }
+  footer .gem { color: var(--gold-soft); }
+
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <a href="/">ראשי</a>
+  <a href="/community">הקהילה שלנו</a>
+  <a href="/services">חריש החרדית</a>
+  <a href="/news" class="active">חדשות הקהילה</a>
+</nav>
+
+<p class="mission-note">האתר נבנה על ידי בני הקהילה, ללא מטרת רווח.</p>
+
+<main>
+  <div class="page-head">
+    <div class="crest">◆</div>
+    <h1>חדשות הקהילה</h1>
+    <div class="gold-rule"></div>
+    <p>עדכונים שוטפים מהקהילה — שיעורים, אירועים, מוסדות ובנייה.</p>
+  </div>
+</main>
+
+<section class="news">
+
+  <!--
+    להוספת עדכון חדש — העתיקו את הבלוק הזה ושימו אותו כאן למעלה,
+    כך שהעדכון החדש ביותר יופיע ראשון:
+
+    <article class="news-item">
+      <time class="news-date" datetime="2026-09-01">א' באלול תשפ"ו</time>
+      <h2>כותרת העדכון</h2>
+      <p>גוף העדכון.</p>
+    </article>
+
+    אפשר להוסיף תמונה מיד אחרי ה-h2:
+      <img loading="lazy" decoding="async" src="שם-הקובץ.jpg" alt="תיאור התמונה">
+  -->
+
+  <div class="news-empty">
+    <span class="gem"></span>
+    <h2>העמוד נפתח זה עתה</h2>
+    <p>מכאן ואילך נעדכן כאן על שיעורים, אירועים והתפתחויות בקהילה.</p>
+  </div>
+
+</section>
+
+<section class="contact">
+  <h2>יש עדכון לפרסם?</h2>
+  <div class="rule"></div>
+  <p class="lead">חברי הקהילה מוזמנים להעביר עדכונים ואירועים דרך אנשי הקשר שבדף הראשי.</p>
+</section>
+
+<footer>
+  <span class="gem">◆</span> קהילת בני הישיבות אבני חן — חריש <span class="gem">◆</span>
+</footer>
+
+<script>
+  (function() {
+    var nav = document.querySelector('.topbar');
+    if (!nav) return;
+    function onScroll() {
+      if (window.scrollY > 40) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+
+  (function() {
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var targets = document.querySelectorAll('.news-item, .news-empty, .page-head, .contact h2, .contact .lead');
+    targets.forEach(function(el) { el.classList.add('reveal'); });
+    var els = document.querySelectorAll('.reveal');
+    if (reduced || !('IntersectionObserver' in window)) {
+      els.forEach(function(el) { el.classList.add('visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function(el) { io.observe(el); });
+  })();
+</script>
+</body>
+</html>
