@@ -20,8 +20,14 @@
   </url>
   <url>
     <loc>https://bh-harish.co.il/news</loc>
-    <lastmod>2026-08-31</lastmod>
+    <lastmod>2026-09-25</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://bh-harish.co.il/apartments</loc>
+    <lastmod>2026-09-25</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
   </url>
 </urlset>

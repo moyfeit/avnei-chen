@@ -166,22 +166,40 @@
     box-shadow: 0 10px 30px rgba(22,50,79,.06);
   }
   .news-item + .news-item { margin-top: 18px; }
-  .news-date {
-    display: block;
-    font-size: 12.5px; font-weight: 700; letter-spacing: .08em;
-    color: var(--gold); margin-bottom: 8px;
+  /* תגית קטגוריה מעל הכותרת */
+  .news-kicker {
+    display: inline-block;
+    font-size: 12px; font-weight: 700; letter-spacing: .12em;
+    color: var(--gold); background: #FBF4E4;
+    border: 1px solid #ECE0C4; border-radius: 999px;
+    padding: 5px 15px; margin-bottom: 14px;
   }
   .news-item h2 {
     font-family: 'Suez One', serif; font-weight: 400;
-    font-size: 22px; color: var(--sapphire);
-    margin: 0 0 12px; padding-bottom: 10px;
-    border-bottom: 2px solid #EFE6D0;
+    font-size: clamp(23px, 5.2vw, 29px); line-height: 1.32;
+    color: var(--sapphire); margin: 0 0 12px;
+  }
+  /* כותרת משנה — התקציר שמתחת לכותרת הראשית */
+  .news-sub {
+    font-size: 17px; font-weight: 500; line-height: 1.75;
+    color: var(--sapphire); margin: 0 0 16px;
+  }
+  /* שורת התאריכים — עברי ולועזי, בין שני קווים */
+  .news-meta {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 9px;
+    font-size: 13px; color: #8A929B; font-weight: 500;
+    padding: 9px 0; margin: 0 0 20px;
+    border-top: 1px solid #EFE6D0; border-bottom: 1px solid #EFE6D0;
+  }
+  .news-meta > * + *::before {
+    content: "·"; margin-inline-end: 9px; color: #CBC2AE;
   }
   .news-item p {
     font-size: 16.5px; line-height: 1.9; color: #3A4653;
-    margin: 0 0 12px; text-align: start;
+    margin: 0 0 14px; text-align: justify; text-wrap: pretty;
   }
   .news-item p:last-child { margin-bottom: 0; }
+  .photo-credit { color: #97907F; font-weight: 600; }
   /* תמונה ראשית + גלריה — אותה תבנית כמו photo-strip בדף הבית */
   .news-hero { margin: 0 0 18px; }
   .news-hero img { margin: 0; }
@@ -213,12 +231,6 @@
   .nt-chev svg { width: 17px; height: 17px; }
   .news-toggle[aria-expanded="true"] .nt-chev { transform: rotate(180deg); }
 
-  .news-lead {
-    font-weight: 500;
-    color: var(--sapphire) !important;
-    border-inline-start: 3px solid var(--gold-soft);
-    padding-inline-start: 14px;
-  }
   .news-item img {
     width: 100%; height: auto;
     border-radius: 12px; display: block;
@@ -284,6 +296,7 @@
     <div class="nav-menu" id="nav-community" hidden>
       <a href="/community">מידע</a>
       <a href="/news" class="active">חדשות מהקהילה</a>
+      <a href="/apartments">דירות מציאות ללא תיווך</a>
     </div>
   </div>
   <a href="/services">חריש החרדית</a>
@@ -303,27 +316,50 @@
 <section class="news">
 
   <!--
-    להוספת עדכון חדש — העתיקו את הבלוק הזה ושימו אותו כאן למעלה,
-    כך שהעדכון החדש ביותר יופיע ראשון:
+    להוספת כתבה חדשה — העתיקו את הבלוק הזה ושימו אותו כאן למעלה,
+    כך שהכתבה החדשה ביותר תופיע ראשונה. שנו גם את מספר ה-id
+    (news-more-2 וכן הלאה) בשני המקומות שבהם הוא מופיע.
 
     <article class="news-item">
-      <time class="news-date" datetime="2026-09-01">א' באלול תשפ"ו</time>
-      <h2>כותרת העדכון</h2>
-      <p>גוף העדכון.</p>
+      <span class="news-kicker">קהילה</span>
+      <h2>כותרת הכתבה</h2>
+      <p class="news-sub">כותרת משנה — משפט אחד שמסכם על מה הכתבה.</p>
+      <div class="news-meta">
+        <time datetime="2026-01-01">א' בטבת תשפ״ו</time>
+        <span>01.01.2026</span>
+      </div>
+      <figure class="news-hero">
+        <img loading="lazy" decoding="async" width="1600" height="1066" src="שם-הקובץ.jpg" alt="תיאור התמונה">
+        <figcaption>כיתוב התמונה <span class="photo-credit">צילום: שם הצלם</span></figcaption>
+      </figure>
+      <div class="news-more" id="news-more-2">
+        <p>גוף הכתבה.</p>
+        <div class="news-gallery">
+          <figure>
+            <img loading="lazy" decoding="async" width="1600" height="1066" src="שם-הקובץ.jpg" alt="תיאור">
+            <figcaption>כיתוב</figcaption>
+          </figure>
+        </div>
+      </div>
+      <button class="news-toggle" aria-expanded="false" aria-controls="news-more-2">
+        <span class="nt-label">להמשך הכתבה</span>
+        <span class="nt-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </button>
     </article>
-
-    אפשר להוסיף תמונה מיד אחרי ה-h2:
-      <img loading="lazy" decoding="async" src="שם-הקובץ.jpg" alt="תיאור התמונה">
   -->
 
   <article class="news-item">
-    <time class="news-date" datetime="2026-09-17">ו' בתשרי תשפ״ז</time>
+    <span class="news-kicker">קהילה</span>
     <h2>כנס חיזוק עשי"ת והשקת קופה של צדקה אבני חן</h2>
+    <p class="news-sub">מעמד חיזוק והתעוררות והשקת קופת הצדקה בקהילה הליטאית אבני חן בחריש, בהשתתפות רבנים ובראשם הגאון הגדול רבי יצחק קולדצקי שליט״א וכן רב העיר הרב זיגדון שליט"א.</p>
+    <div class="news-meta">
+      <time datetime="2026-09-17">ו' בתשרי תשפ״ז</time>
+      <span>17.09.2026</span>
+    </div>
     <figure class="news-hero">
       <img loading="lazy" decoding="async" width="1600" height="1066" src="kenes-04.jpg" alt="הגאון הגדול רבי יצחק קולדצקי שליט״א תורם לקופת הצדקה ׳אבני חן׳ על שולחן הכבוד">
       <figcaption>הגאון הגדול רבי יצחק קולדצקי שליט״א בהשקת קופת הצדקה ׳אבני חן׳</figcaption>
     </figure>
-    <p class="news-lead">מעמד חיזוק והתעוררות והשקת קופת הצדקה בקהילה הליטאית אבני חן בחריש, בהשתתפות רבנים ובראשם הגאון הגדול רבי יצחק קולדצקי שליט״א וכן רב העיר הרב זיגדון שליט"א.</p>
     <div class="news-more" id="news-more-1">
     <p>התפתחות דרמטית בקהילה הליטאית בשכונת אבני חן בחריש.</p>
     <p>מאות השתתפו במעמד חיזוק והתעוררות לקראת יום הכיפורים והשקת קופת הצדקה ׳אבני חן׳ ומערך התמיכה הקהילתי בשכונה.</p>

@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>דירות מציאות ללא תיווך | אבני חן - קהילת בני הישיבות בחריש</title>
+<link rel="icon" type="image/svg+xml" href="/icon.svg">
+<link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
+<link rel="icon" type="image/png" sizes="96x96" href="/icon-96.png">
+<link rel="icon" type="image/png" sizes="48x48" href="/icon-48.png">
+<link rel="apple-touch-icon" href="/apple-touch-icon.png">
+<meta name="description" content="דירות למכירה באזור קהילת אבני חן בחריש, ישירות מהמוכרים וללא דמי תיווך. לוח הדירות של קהילת בני הישיבות.">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://bh-harish.co.il/apartments">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-6DS9HEK18W"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-6DS9HEK18W');
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;700&family=Suez+One&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sapphire: #16324F;
+    --gold: #B8892E;
+    --gold-soft: #D9B96A;
+    --ivory: #FBF9F3;
+    --line: #ECE4D2;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Heebo', sans-serif;
+    background: var(--ivory);
+    color: #33404D;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+  .topbar {
+    background: var(--sapphire);
+    padding: 0 clamp(6px, 2vw, 20px);
+    display: flex;
+    justify-content: safe center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 10px rgba(0,0,0,.18);
+    transition: background .3s ease, box-shadow .3s ease;
+  }
+  .topbar > a, .topbar .nav-trigger {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: #CBD8E4;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: clamp(12.5px, 3.4vw, 15.5px);
+    font-weight: 500;
+    white-space: nowrap;
+    padding: 15px clamp(10px, 3vw, 22px);
+    background: none;
+    border: 0;
+    cursor: pointer;
+    transition: color .25s ease, box-shadow .25s ease;
+  }
+  /* קו מפריד בין פריט לקודמו — inline-start כי הפריסה RTL */
+  .topbar > * + *::before {
+    content: "";
+    position: absolute;
+    inset-inline-start: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 17px;
+    background: rgba(217,185,106,.34);
+  }
+  .topbar > a:hover, .topbar .nav-trigger:hover { color: #FFF; }
+  .topbar > a:focus-visible, .topbar .nav-trigger:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: -3px; }
+  .topbar > a.active, .topbar .nav-trigger.active { color: #FFF; box-shadow: inset 0 -3px 0 var(--gold-soft); }
+
+  /* תת-תפריט — נפתח בלחיצה, לא ב-hover, כדי שיעבוד גם במגע */
+  .nav-group { position: relative; display: flex; }
+  .nav-chev { display: flex; transition: transform .25s ease; }
+  .nav-chev svg { width: 13px; height: 13px; }
+  .nav-trigger[aria-expanded="true"] .nav-chev { transform: rotate(180deg); }
+  .nav-menu {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: 6px;
+    min-width: 172px;
+    background: #FFF;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    box-shadow: 0 14px 34px rgba(14,35,56,.22);
+    padding: 6px;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .nav-menu[hidden] { display: none; }
+  .nav-menu a {
+    display: block;
+    padding: 10px 14px;
+    border-radius: 8px;
+    color: var(--sapphire);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
+  .nav-menu a:hover { background: #FBF4E4; color: var(--gold); }
+  .nav-menu a:focus-visible { outline: 2px solid var(--gold); outline-offset: -2px; }
+  .nav-menu a.active { background: #FBF4E4; color: var(--gold); font-weight: 700; }
+  .topbar.scrolled {
+    background: rgba(251, 249, 243, 0.82);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 12px rgba(20,40,62,.10);
+  }
+  .topbar.scrolled > a, .topbar.scrolled .nav-trigger { color: var(--sapphire); }
+  .topbar.scrolled > a:hover, .topbar.scrolled .nav-trigger:hover { color: var(--gold); }
+  .topbar.scrolled > * + *::before { background: rgba(184,137,46,.32); }
+  .topbar.scrolled > a.active, .topbar.scrolled .nav-trigger.active { color: var(--sapphire); box-shadow: inset 0 -3px 0 var(--gold); }
+
+  .mission-note {
+    margin: 0;
+    padding: 11px 20px;
+    text-align: center;
+    background: #FBF4E4;
+    border-bottom: 1px solid #ECE0C4;
+    color: #6B6250;
+    font-size: 13.5px;
+    line-height: 1.6;
+    font-weight: 500;
+  }
+  @media (min-width: 900px) { .mission-note { font-size: 14.5px; padding: 13px 24px; } }
+
+  /* ── כותרת הדף ── */
+  main { padding: 42px 22px 10px; }
+  .page-head { text-align: center; max-width: 680px; margin: 0 auto; }
+  .crest { font-size: 32px; color: var(--gold); margin-bottom: 12px; }
+  .page-head h1 {
+    font-family: 'Suez One', serif; font-weight: 400;
+    font-size: clamp(28px, 6vw, 40px); color: var(--sapphire); margin-bottom: 10px;
+  }
+  .gold-rule {
+    width: 70px; height: 3px; margin: 0 auto 18px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+  .page-head p { font-size: 17px; line-height: 1.8; color: #4A5763; }
+
+  /* ── לוח הדירות ── */
+  .flats { max-width: 700px; margin: 32px auto 0; padding: 0 22px; }
+  .flat {
+    background: #FFF;
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    padding: 22px 24px 20px;
+    box-shadow: 0 10px 30px rgba(22,50,79,.06);
+  }
+  .flat + .flat { margin-top: 16px; }
+  .flat-head {
+    display: flex; flex-wrap: wrap; align-items: baseline;
+    justify-content: space-between; gap: 8px 14px;
+    padding-bottom: 12px; margin-bottom: 14px;
+    border-bottom: 2px solid #EFE6D0;
+  }
+  .flat-head h2 {
+    font-family: 'Suez One', serif; font-weight: 400;
+    font-size: 21px; color: var(--sapphire);
+  }
+  .flat-price {
+    font-family: 'Suez One', serif; font-size: 20px;
+    color: var(--gold); white-space: nowrap;
+  }
+  .flat-specs { list-style: none; display: flex; flex-wrap: wrap; gap: 8px 10px; margin: 0 0 14px; }
+  .flat-specs li {
+    font-size: 13.5px; font-weight: 500; color: #4A5763;
+    background: #F6F2E7; border: 1px solid #EFE6D0;
+    border-radius: 999px; padding: 5px 13px;
+  }
+  .flat p { font-size: 16px; line-height: 1.85; color: #3A4653; margin: 0 0 14px; }
+  .flat-contact {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: linear-gradient(135deg, var(--gold), var(--gold-soft));
+    color: #FFF; text-decoration: none;
+    font-weight: 700; font-size: 15.5px;
+    padding: 10px 24px; border-radius: 40px;
+    box-shadow: 0 6px 18px rgba(184,137,46,.30);
+    transition: transform .15s ease, box-shadow .15s ease;
+  }
+  .flat-contact:hover { transform: translateY(-2px); box-shadow: 0 10px 24px rgba(184,137,46,.38); }
+  .flat-contact:focus-visible { outline: 3px solid var(--sapphire); outline-offset: 3px; }
+  .flat-contact svg { width: 17px; height: 17px; flex-shrink: 0; }
+  @media (min-width: 900px) {
+    .flats { max-width: 800px; }
+    .flat { padding: 28px 32px 26px; }
+    .flat-head h2 { font-size: 24px; }
+    .flat-price { font-size: 23px; }
+    .flat p { font-size: 17px; }
+  }
+
+  /* ── מצב ריק ── */
+  .flats-empty {
+    text-align: center;
+    border: 2px dashed var(--gold);
+    border-radius: 16px;
+    padding: 40px 26px;
+    color: #6B6250;
+  }
+  .flats-empty .gem {
+    display: block; width: 14px; height: 14px; margin: 0 auto 16px;
+    background: var(--gold); transform: rotate(45deg);
+  }
+  .flats-empty h2 {
+    font-family: 'Suez One', serif; font-weight: 400;
+    font-size: 22px; color: var(--sapphire); margin-bottom: 10px;
+  }
+  .flats-empty p { font-size: 16px; line-height: 1.8; }
+
+  /* ── הבהרה ── */
+  .disclaimer {
+    max-width: 700px; margin: 22px auto 0; padding: 0 22px;
+    font-size: 13.5px; line-height: 1.7; color: #8A7B54; text-align: center;
+  }
+  @media (min-width: 900px) { .disclaimer { max-width: 800px; } }
+
+  /* ── יצירת קשר ── */
+  .contact {
+    text-align: center; background: var(--sapphire);
+    padding: 50px 20px 56px; margin-top: 46px;
+  }
+  .contact h2 { color: #FFF; font-family: 'Suez One', serif; font-size: clamp(24px,6vw,32px); margin: 0 0 12px; }
+  .contact .rule {
+    height: 3px; width: 64px; border-radius: 2px; margin: 0 auto 18px;
+    background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+  }
+  .contact .lead { color: #C9D6E2; font-size: 16px; line-height: 1.7; max-width: 520px; margin: 0 auto; }
+  .contacts-list { max-width: 480px; margin: 28px auto 0; display: flex; flex-direction: column; gap: 14px; }
+  .contact-row {
+    display: flex; justify-content: space-between; align-items: center; gap: 16px;
+    background: #FFF; border-inline-start: 4px solid var(--gold);
+    border-radius: 10px; padding: 15px 20px; text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0,0,0,.25);
+    transition: transform .2s ease, box-shadow .2s ease;
+  }
+  .contact-row:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(0,0,0,.35); }
+  .contact-row:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+  .c-name { font-weight: 700; font-size: 16.5px; color: var(--sapphire); text-align: right; }
+  .c-name small { display: block; font-weight: 500; font-size: 13px; color: var(--gold); margin-top: 2px; }
+  .c-phone { font-weight: 700; font-size: 16px; color: var(--gold); direction: ltr; white-space: nowrap; }
+  @media (max-width: 420px) {
+    .contact-row { flex-direction: column; gap: 6px; }
+    .c-name { text-align: center; }
+  }
+
+  footer {
+    background: var(--sapphire); color: #C9D6E2;
+    text-align: center; padding: 18px; font-size: 14px;
+  }
+  footer .gem { color: var(--gold-soft); }
+
+  .reveal { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+</style>
+</head>
+<body>
+
+<nav class="topbar">
+  <a href="/">ראשי</a>
+  <div class="nav-group">
+    <button class="nav-trigger active" aria-expanded="false" aria-haspopup="true" aria-controls="nav-community">
+      הקהילה שלנו
+      <span class="nav-chev" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+    </button>
+    <div class="nav-menu" id="nav-community" hidden>
+      <a href="/community">מידע</a>
+      <a href="/news">חדשות מהקהילה</a>
+      <a href="/apartments" class="active">דירות מציאות ללא תיווך</a>
+    </div>
+  </div>
+  <a href="/services">חריש החרדית</a>
+</nav>
+
+<p class="mission-note">האתר נבנה על ידי בני הקהילה, ללא מטרת רווח.</p>
+
+<main>
+  <div class="page-head">
+    <div class="crest">◆</div>
+    <h1>דירות מציאות ללא תיווך</h1>
+    <div class="gold-rule"></div>
+    <p>דירות באזור הקהילה, ישירות מהמוכרים. בלי מתווך ובלי דמי תיווך.</p>
+  </div>
+</main>
+
+<section class="flats">
+
+  <!--
+    להוספת דירה — העתיקו את הבלוק הזה ושימו אותו כאן למעלה:
+
+    <article class="flat">
+      <div class="flat-head">
+        <h2>4 חדרים · רחוב ...</h2>
+        <span class="flat-price">1,300,000 ₪</span>
+      </div>
+      <ul class="flat-specs">
+        <li>קומה 2 מתוך 6</li>
+        <li>95 מ"ר</li>
+        <li>מרפסת סוכה</li>
+        <li>מעלית</li>
+        <li>חניה</li>
+      </ul>
+      <p>הערות על הדירה — מצב, כיווני אוויר, מועד פינוי.</p>
+      <a class="flat-contact" href="tel:0500000000">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.3 21 3 13.7 3 4.5c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1L6.6 10.8z"/></svg>
+        <span>לפרטים — 050-000-0000</span>
+      </a>
+    </article>
+  -->
+
+  <div class="flats-empty">
+    <span class="gem"></span>
+    <h2>הלוח נפתח זה עתה</h2>
+    <p>דירות שיתפרסמו כאן יגיעו ישירות מבני הקהילה ומהמוכרים.<br>יש דירה למכירה? צרו קשר ונפרסם אותה.</p>
+  </div>
+
+</section>
+
+<p class="disclaimer">
+  הלוח מתפרסם כשירות לבני הקהילה, ללא תמורה וללא אחריות. הפרטים נמסרים על ידי המוכרים — יש לאמת אותם מול המוכר לפני כל התחייבות.
+</p>
+
+<section class="contact">
+  <h2>לפרסום דירה או לפרטים</h2>
+  <div class="rule"></div>
+  <p class="lead">פנו לאנשי הקשר של הקהילה ונשמח לחבר ביניכם</p>
+  <div class="contacts-list">
+    <a class="contact-row" href="tel:0533186171">
+      <span class="c-name">חיים סגל</span>
+      <span class="c-phone">053-318-6171</span>
+    </a>
+    <a class="contact-row" href="tel:0548598611">
+      <span class="c-name">שלמה גילרנטר</span>
+      <span class="c-phone">054-859-8611</span>
+    </a>
+    <a class="contact-row" href="tel:0548473490">
+      <span class="c-name">אליה שם טוב <small>מתווך הקהילה</small></span>
+      <span class="c-phone">054-847-3490</span>
+    </a>
+  </div>
+</section>
+
+<footer>
+  <span class="gem">◆</span> קהילת בני הישיבות אבני חן — חריש <span class="gem">◆</span>
+</footer>
+
+<script>
+  (function() {
+    var nav = document.querySelector('.topbar');
+    if (!nav) return;
+    function onScroll() {
+      if (window.scrollY > 40) nav.classList.add('scrolled');
+      else nav.classList.remove('scrolled');
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+
+  (function() {
+    var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.querySelectorAll('.flat, .flats-empty, .page-head, .contact h2, .contact .lead, .contact-row')
+      .forEach(function(el) { el.classList.add('reveal'); });
+    var els = document.querySelectorAll('.reveal');
+    if (reduced || !('IntersectionObserver' in window)) {
+      els.forEach(function(el) { el.classList.add('visible'); });
+      return;
+    }
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(e) {
+        if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+      });
+    }, { threshold: 0.12 });
+    els.forEach(function(el) { io.observe(el); });
+  })();
+</script>
+
+<script>
+// תת-תפריט "הקהילה שלנו" — נפתח בלחיצה/נגיעה, לא ב-hover
+(function() {
+  var trigger = document.querySelector('.nav-trigger');
+  if (!trigger) return;
+  var menu = document.getElementById(trigger.getAttribute('aria-controls'));
+  if (!menu) return;
+
+  function close() {
+    if (menu.hidden) return;
+    menu.hidden = true;
+    trigger.setAttribute('aria-expanded', 'false');
+  }
+  function open() {
+    menu.hidden = false;
+    trigger.setAttribute('aria-expanded', 'true');
+  }
+
+  trigger.addEventListener('click', function(e) {
+    e.stopPropagation();
+    if (trigger.getAttribute('aria-expanded') === 'true') close(); else open();
+  });
+  menu.addEventListener('click', function(e) { e.stopPropagation(); });
+  document.addEventListener('click', close);
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && !menu.hidden) { close(); trigger.focus(); }
+  });
+})();
+</script>
+</body>
+</html>
