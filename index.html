@@ -574,8 +574,25 @@
     margin-top: 10px;
     line-height: 1.6;
   }
+  .pc-note { display: block; }
+  .yt-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    margin-top: 9px;
+    color: var(--gold);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    font-size: 14px;
+    font-weight: 600;
+    transition: color .2s ease;
+  }
+  .yt-link:hover { color: var(--sapphire); }
+  .yt-link:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+  .yt-link svg { width: 18px; height: 18px; flex-shrink: 0; }
   @media (min-width: 900px) {
     .podcast figcaption { font-size: 15px; }
+    .yt-link { font-size: 14.5px; }
   }
 
   /* ---------- השוואת שטח שיפוט ---------- */
@@ -1152,7 +1169,13 @@
             allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             allowfullscreen></iframe>
         </div>
-        <figcaption>פודקאסט שקיים חבר הקהילה הרב שרגי הוכברגר עם הרב אריה ליבוביץ</figcaption>
+        <figcaption>
+          <span class="pc-note">פודקאסט שקיים חבר הקהילה הרב שרגי הוכברגר עם הרב אריה ליבוביץ</span>
+          <a class="yt-link" href="https://www.youtube.com/watch?v=bQVEJbkmeC8" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 12s0-3.9-.5-5.8a3 3 0 0 0-2.1-2.1C18.5 3.6 12 3.6 12 3.6s-6.5 0-8.4.5A3 3 0 0 0 1.5 6.2C1 8.1 1 12 1 12s0 3.9.5 5.8a3 3 0 0 0 2.1 2.1c1.9.5 8.4.5 8.4.5s6.5 0 8.4-.5a3 3 0 0 0 2.1-2.1C23 15.9 23 12 23 12zM9.8 15.6V8.4l6.3 3.6-6.3 3.6z"/></svg>
+            <span>לצפייה ביוטיוב</span>
+          </a>
+        </figcaption>
       </figure>
 
       <p>שכונת אבני חן כשמה כן היא — פנינת יופי מלאה בחן, טובלת בירוק, בליבה של העיר החדשה והיפה ביותר בארץ.</p>
