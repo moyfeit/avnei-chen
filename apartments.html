@@ -160,18 +160,25 @@
   }
   .flats-notice .fn-strong {
     background: var(--sapphire);
-    border-color: var(--sapphire);
-    color: #E4EBF2;
-    font-size: 17px;
+    border: 1px solid var(--sapphire);
+    border-radius: 14px;
+    padding: 18px 20px;
+    text-align: center;
     margin-bottom: 12px;
   }
+  /* מאפסים את עיצוב הקופסה שירש מ-.flats-notice p */
+  .flats-notice .fn-strong p {
+    background: none; border: 0; border-radius: 0; padding: 0;
+    color: #E4EBF2; font-size: 17px; line-height: 1.8; margin: 0;
+  }
   .flats-notice .fn-strong strong { color: var(--gold-soft); font-weight: 700; }
-  @media (min-width: 900px) { .flats-notice .fn-strong { font-size: 18.5px; } }
-  .fn-update {
-    display: inline-block;
-    margin-top: 6px;
-    font-size: 14.5px;
-    color: #8A7B54;
+  .flats-notice .fn-strong .fn-update {
+    margin-top: 13px;
+    padding-top: 13px;
+    border-top: 1px solid rgba(217,185,106,.32);
+  }
+  @media (min-width: 900px) {
+    .flats-notice .fn-strong p { font-size: 18.5px; }
   }
   .flats-notice a {
     color: var(--gold);
@@ -338,8 +345,11 @@
 </main>
 
 <div class="flats-notice">
-  <p class="fn-strong">הדירות בלוח משווקות <strong>ללא דמי תיווך</strong>, לקונים לצורך מגורים בלבד.</p>
-  <p>לבירורים על הדירות המשווקות כאן אפשר לפנות אל <a href="tel:0548598611">הרב גילרנטר</a> ואל <a href="tel:0533186171">הרב סגל</a>.<br><span class="fn-update">רשימת הדירות מתעדכנת מדי שבוע במוצאי שבת.</span></p>
+  <div class="fn-strong">
+    <p>הדירות בלוח משווקות <strong>ללא דמי תיווך</strong>, לקונים לצורך מגורים בלבד.</p>
+    <p class="fn-update">הרשימה מתעדכנת <strong>מדי שבוע במוצאי שבת</strong></p>
+  </div>
+  <p>לבירורים על הדירות המשווקות כאן אפשר לפנות אל <a href="tel:0548598611">הרב גילרנטר</a> ואל <a href="tel:0533186171">הרב סגל</a>.</p>
 </div>
 
 <section class="flats">
