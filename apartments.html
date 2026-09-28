@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>דירות מציאות ללא תיווך | אבני חן - קהילת בני הישיבות בחריש</title>
+<title>דירות מציאה ללא תיווך | אבני חן - קהילת בני הישיבות בחריש</title>
 <link rel="icon" type="image/svg+xml" href="/icon.svg">
 <link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png">
 <link rel="icon" type="image/png" sizes="96x96" href="/icon-96.png">
@@ -68,17 +68,6 @@
     cursor: pointer;
     transition: color .25s ease, box-shadow .25s ease;
   }
-  /* קו מפריד בין פריט לקודמו — inline-start כי הפריסה RTL */
-  .topbar > * + *::before {
-    content: "";
-    position: absolute;
-    inset-inline-start: 0;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 1px;
-    height: 17px;
-    background: rgba(217,185,106,.34);
-  }
   .topbar > a:hover, .topbar .nav-trigger:hover { color: #FFF; }
   .topbar > a:focus-visible, .topbar .nav-trigger:focus-visible { outline: 2px solid var(--gold-soft); outline-offset: -3px; }
   .topbar > a.active, .topbar .nav-trigger.active { color: #FFF; box-shadow: inset 0 -3px 0 var(--gold-soft); }
@@ -126,7 +115,6 @@
   }
   .topbar.scrolled > a, .topbar.scrolled .nav-trigger { color: var(--sapphire); }
   .topbar.scrolled > a:hover, .topbar.scrolled .nav-trigger:hover { color: var(--gold); }
-  .topbar.scrolled > * + *::before { background: rgba(184,137,46,.32); }
   .topbar.scrolled > a.active, .topbar.scrolled .nav-trigger.active { color: var(--sapphire); box-shadow: inset 0 -3px 0 var(--gold); }
 
   .mission-note {
@@ -179,6 +167,12 @@
   }
   .flats-notice .fn-strong strong { color: var(--gold-soft); font-weight: 700; }
   @media (min-width: 900px) { .flats-notice .fn-strong { font-size: 18.5px; } }
+  .fn-update {
+    display: inline-block;
+    margin-top: 6px;
+    font-size: 14.5px;
+    color: #8A7B54;
+  }
   .flats-notice a {
     color: var(--gold);
     font-weight: 700;
@@ -326,7 +320,7 @@
     <div class="nav-menu" id="nav-community" hidden>
       <a href="/community">מידע</a>
       <a href="/news">חדשות מהקהילה</a>
-      <a href="/apartments" class="active">דירות מציאות ללא תיווך</a>
+      <a href="/apartments" class="active">דירות מציאה ללא תיווך</a>
     </div>
   </div>
   <a href="/services">חריש החרדית</a>
@@ -337,7 +331,7 @@
 <main>
   <div class="page-head">
     <div class="crest">◆</div>
-    <h1>דירות מציאות ללא תיווך</h1>
+    <h1>דירות מציאה ללא תיווך</h1>
     <div class="gold-rule"></div>
     <p>דירות באזור הקהילה, ישירות מהמוכרים. בלי מתווך ובלי דמי תיווך.</p>
   </div>
@@ -345,7 +339,7 @@
 
 <div class="flats-notice">
   <p class="fn-strong">הדירות בלוח משווקות <strong>ללא דמי תיווך</strong>, לקונים לצורך מגורים בלבד.</p>
-  <p>לבירורים על הדירות המשווקות כאן אפשר לפנות אל <a href="tel:0548598611">הרב גילרנטר</a> ואל <a href="tel:0533186171">הרב סגל</a>.</p>
+  <p>לבירורים על הדירות המשווקות כאן אפשר לפנות אל <a href="tel:0548598611">הרב גילרנטר</a> ואל <a href="tel:0533186171">הרב סגל</a>.<br><span class="fn-update">רשימת הדירות מתעדכנת מדי שבוע במוצאי שבת.</span></p>
 </div>
 
 <section class="flats">
@@ -384,11 +378,11 @@
     <ul class="flat-specs">
       <li>5 חדרים</li>
       <li>105 מ"ר בנוי</li>
-      <li>מרפסת סוכה 16 מ"ר</li>
+      <li>מרפסת 16 מ"ר, חלקה סוכה</li>
       <li>צמוד להקצאת בית הכנסת</li>
       <li>צמוד לסופר מעיין 2000</li>
     </ul>
-    <p>דירת 5 חדרים בשטח בנוי של 105 מ"ר, ובנוסף מרפסת סוכה בשטח 16 מ"ר. הדירה צמודה להקצאה של בית הכנסת של הקהילה ולסופר מעיין 2000 — הכל במרחק הליכה קצר.</p>
+    <p>דירת 5 חדרים בשטח בנוי של 105 מ"ר, ובנוסף מרפסת בשטח 16 מ"ר שחלקה מרפסת סוכה. הדירה צמודה להקצאה של בית הכנסת של הקהילה ולסופר מעיין 2000 — הכל במרחק הליכה קצר.</p>
     <a class="flat-contact" href="#contact">
       <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1C10.3 21 3 13.7 3 4.5c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.2.2 2.4.6 3.6.1.4 0 .8-.3 1L6.6 10.8z"/></svg>
       <span>לפרטים ולתיאום ביקור</span>
