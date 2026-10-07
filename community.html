@@ -644,6 +644,15 @@
   }
   .contact-row:hover, .contact-row:focus-visible { box-shadow:0 10px 26px rgba(0,0,0,.35); transform:translateY(-2px); }
   .contact-row:focus-visible { outline:3px solid var(--gold); outline-offset:2px; }
+  /* כותרת קבוצה בתוך רשימת אנשי הקשר */
+  .contacts-group {
+    text-align: center;
+    margin: 14px 0 2px;
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    color: var(--gold-soft);
+  }
   .c-name { font-weight:700; font-size:17px; color:var(--sapphire); text-align:right; }
   .c-name small { display:block; font-weight:500; font-size:13px; color:var(--gold); margin-top:2px; }
   .c-phone { font-weight:700; font-size:16px; color:var(--gold); direction:ltr; white-space:nowrap; }
@@ -662,17 +671,18 @@
       <span class="c-name">שלמה גילרנטר</span>
       <span class="c-phone">054-859-8611</span>
     </a>
-    <a class="contact-row" href="tel:0548473490">
-      <span class="c-name">אליה שם טוב <small>מתווך הקהילה</small></span>
-      <span class="c-phone">054-847-3490</span>
-    </a>
-    <a class="contact-row" href="tel:0548445208">
-      <span class="c-name">טייכמן <small>(בין הסדרים ובערבים)</small></span>
-      <span class="c-phone">054-844-5208</span>
-    </a>
     <a class="contact-row" href="tel:0527145940">
       <span class="c-name">הרבנית מנקין</span>
       <span class="c-phone">052-714-5940</span>
+    </a>
+    <p class="contacts-group">מתווכי הקהילה — לענייני דירות בלבד</p>
+    <a class="contact-row" href="tel:0548473490">
+      <span class="c-name">אליה שם טוב</span>
+      <span class="c-phone">054-847-3490</span>
+    </a>
+    <a class="contact-row" href="tel:0548445208">
+      <span class="c-name">טייכמן <small>בין הסדרים ובערבים</small></span>
+      <span class="c-phone">054-844-5208</span>
     </a>
   </div>
   <p class="give-link">
