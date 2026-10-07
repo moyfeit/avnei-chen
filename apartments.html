@@ -296,6 +296,15 @@
   }
   .contact-row:hover { transform: translateY(-2px); box-shadow: 0 10px 26px rgba(0,0,0,.35); }
   .contact-row:focus-visible { outline: 3px solid var(--gold); outline-offset: 2px; }
+  /* כותרת קבוצה בתוך רשימת אנשי הקשר */
+  .contacts-group {
+    text-align: center;
+    margin: 0 0 2px;
+    font-size: 13.5px;
+    font-weight: 700;
+    letter-spacing: .05em;
+    color: var(--gold-soft);
+  }
   .c-name { font-weight: 700; font-size: 16.5px; color: var(--sapphire); text-align: right; }
   .c-name small { display: block; font-weight: 500; font-size: 13px; color: var(--gold); margin-top: 2px; }
   .c-phone { font-weight: 700; font-size: 16px; color: var(--gold); direction: ltr; white-space: nowrap; }
@@ -410,13 +419,14 @@
   <div class="rule"></div>
   <p class="lead">פנו לאנשי הקשר של הקהילה ונשמח לחבר ביניכם</p>
   <div class="contacts-list">
-    <a class="contact-row" href="tel:0533186171">
-      <span class="c-name">חיים סגל</span>
-      <span class="c-phone">053-318-6171</span>
+    <p class="contacts-group">מתווכי הקהילה</p>
+    <a class="contact-row" href="tel:0548473490">
+      <span class="c-name">אליה שם טוב</span>
+      <span class="c-phone">054-847-3490</span>
     </a>
-    <a class="contact-row" href="tel:0548598611">
-      <span class="c-name">שלמה גילרנטר</span>
-      <span class="c-phone">054-859-8611</span>
+    <a class="contact-row" href="tel:0548445208">
+      <span class="c-name">טייכמן <small>בין הסדרים ובערבים</small></span>
+      <span class="c-phone">054-844-5208</span>
     </a>
   </div>
 </section>
